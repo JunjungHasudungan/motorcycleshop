@@ -25,6 +25,7 @@ return [
     'month'                                => 'Month',
     'no'                                   => 'No',
     'pleaseSelect'                         => 'Please select',
+    'site_title'                           => 'Toko Bengkel Motor',
     'register'                             => 'Register',
     'remember_me'                          => 'Remember me',
     'reset_password'                       => 'Reset Password',

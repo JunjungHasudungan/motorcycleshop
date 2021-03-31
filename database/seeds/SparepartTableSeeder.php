@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\SparePart;
+use App\Models\Sparepart;
 
 class SparepartTableSeeder extends Seeder
 {
@@ -106,6 +106,6 @@ class SparepartTableSeeder extends Seeder
             ]
         ];
 
-        SparePart::insert($pareparts);
+        Sparepart::insert($pareparts);
     }
 }

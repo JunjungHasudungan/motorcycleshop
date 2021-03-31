@@ -91,22 +91,22 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('registration.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-cogs"></i> {{ trans('global.registration') }} 
+                            <a class="c-sidebar-nav-link" href="{{route('chasier.index')}}">
+                                    <i class="c-sidebar-nav-icon fas fa-chalkboard-teacher"></i> {{ trans('cruds.chasiers.title') }} 
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('student.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-users"></i>  {{ trans('cruds.user.title_student') }}
+                            <a class="c-sidebar-nav-link" href="{{route('user.index')}}">
+                                    <i class="c-sidebar-nav-icon fas fa-users"></i>  {{ trans('cruds.user.title_singular') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('teacher.index')}}">
-                                    <i class="c-sidebar-nav-icon fas fa-chalkboard-teacher"></i> {{ trans('cruds.user.title_teacher') }} 
+                            <a class="c-sidebar-nav-link" href="{{route('motor.index')}}">
+                                    <i class="c-sidebar-nav-icon fas fa-motorcycle"></i> {{ trans('cruds.motors.title') }} 
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('major.index')}}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon"></i> {{ trans('global.majors') }} 
                                 </a>
                             </li>

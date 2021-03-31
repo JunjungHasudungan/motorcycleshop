@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermissionTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePermissionTable extends Migration
      */
     public function up()
     {
-        Schema::create('permission', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('id_sparepart', 100);
+            $table->string('id_service');
+            $table->string('name');
             $table->double('price', 8, 0);
-            $table->string('name', 100);
-            $table->integer('motor_id')->index();
+            $table->double('total_price_service', 8, 0);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePermissionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission');
+        Schema::dropIfExists('services');
     }
 }

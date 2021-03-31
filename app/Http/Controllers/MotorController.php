@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Motor;
 use Illuminate\Http\Request;
-use App\Models\Major;
-use App\Http\Requests\StoreMajorRequest;
-use App\Http\Requests\UpdateMajorRequest;
-use Illuminate\Support\Facades\DB;
-class MajorController extends Controller
+use App\Http\Requests\StoreMotorRequest;
+use Symfony\Component\HttpFoundation\Response;
+use Gate;
+
+class MotorController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *inde
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // $majors = Major::all();
-        $majors = Major::paginate(5);
-         return view('majors.index', compact('majors')); 
-        // dd($majors);
+        // abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $motors = Motor::paginate(5);
+
+        return view('motor.index', compact('motors'));
     }
 
     /**
@@ -29,7 +30,9 @@ class MajorController extends Controller
      */
     public function create()
     {
-        return view('majors.create');
+        // abort_if(Gate::denies('motor_access'), Response::HTTP_CREATED_AT);
+
+        return view('motor.create');
     }
 
     /**
@@ -38,10 +41,11 @@ class MajorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMajorRequest $request)
+    public function store(StoreMotorRequest $request)
     {
-        $major = Major::create($request->all());
-        return redirect()->route('major.index');
+        $motor = Motor::create($request->all());
+
+        return redirect()->route('motor.index');
     }
 
     /**
@@ -50,12 +54,11 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Major $major)
+    public function show(Motor $motor)
     {
-        // $major->find($major);
-        // $major->where('id', $major)->get(['name', 'cost']);
-        return view('majors.show', compact('major'));
-        // dd($major);
+        //abort_if(Gate::denies('motor_show'), Response::HTTP_FORBIDDEN, '403, Forbidden');
+
+        return view('motor.show', compact('motor'));
     }
 
     /**
@@ -64,9 +67,9 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Major $major)
+    public function edit($id)
     {
-        return view('majors.edit', compact('major'));
+        //
     }
 
     /**
@@ -76,10 +79,9 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMajorRequest $request, Major $major)
+    public function update(Request $request, $id)
     {
-        $major->update($request->all());
-        return redirect()->route('major.index');
+        //
     }
 
     /**
@@ -88,9 +90,8 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Major $major)
+    public function destroy($id)
     {
-        $major->delete();
-        return redirect()->route('major.index');
+        //
     }
 }

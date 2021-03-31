@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreRegistrationRequest;
-use App\Http\Requests\UpdateRegistrationRequest;
+use App\Models\Service;
 use Illuminate\Http\Request;
-use App\Models\Registration;
-use App\Models\Student;
-use App\Models\Subject;
 
-class RegistrationController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::with('students')->get();
-        return view('registration.index', compact('registrations'));
-        // dd($registrations);
+        //
     }
 
     /**
@@ -30,9 +24,7 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        $students = Student::pluck('name', 'id');
-        $subjects = Subject::pluck('name', 'id');
-        return view('registration.create', compact('student', 'subject'));
+        //
     }
 
     /**
@@ -41,10 +33,9 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRegistrationRequest $request)
+    public function store(Request $request)
     {
-        $registrations = Registration::create($request->all());
-        return redirect()->route('registration.index');
+        //
     }
 
     /**
@@ -53,7 +44,7 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Registration $registration)
+    public function show($id)
     {
         //
     }
@@ -64,10 +55,9 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Registration $registration)
+    public function edit($id)
     {
-        $registration->find($registration);
-        return view('registration.edit', compact('registration'));
+        //
     }
 
     /**
@@ -77,7 +67,7 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpteRegistrationRequest $request, Registration $registration)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -88,7 +78,7 @@ class RegistrationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Registration $registration)
+    public function destroy($id)
     {
         //
     }

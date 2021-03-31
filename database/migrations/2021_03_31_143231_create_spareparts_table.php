@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMajorsTable extends Migration
+class CreateSparepartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateMajorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('majors', function (Blueprint $table) {
+        Schema::create('spareparts', function (Blueprint $table) {
             $table->id();
+            $table->string('id_sparepart');
             $table->string('name');
-            $table->double('cost', 8, 0);
+            $table->double('price', 8, 0);
+            $table->integer('motor_id')->index();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateMajorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('majors');
+        Schema::dropIfExists('spareparts');
     }
 }

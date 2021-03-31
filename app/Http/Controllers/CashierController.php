@@ -1,14 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Cashier;
 use Illuminate\Http\Request;
-use App\Models\Motor;
-use Gate;
-use App\Http\Requests\StoreMotorRequest;
-use Symfony\Component\HttpFoundation\Response;
 
-class CoursesController extends Controller
+class CashierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +13,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $motors = Motor::paginate(5);
-
-        return view('motors.index', compact('motors'));
-        // dd($motors);    
+        //
     }
 
     /**
@@ -30,9 +23,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        // abort_if(Gate::denies('motor_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        return view('motors.create');
+        //
     }
 
     /**
@@ -41,11 +32,9 @@ class CoursesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMotorRequest $request)
+    public function store(Request $request)
     {
-            $motor = Motor::create($request->all());
-
-            return redirect()->route('motor.index');
+        //
     }
 
     /**
@@ -54,11 +43,9 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Motor $motor)
+    public function show($id)
     {
-        $motors = Motor::find($motor);
-        return view('motors.show', compact('motors'));
-        // dd($motors);
+        //
     }
 
     /**
@@ -67,7 +54,7 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Motor $motor)
+    public function edit($id)
     {
         //
     }
@@ -90,7 +77,7 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Motor $motor)
+    public function destroy($id)
     {
         //
     }

@@ -12,17 +12,17 @@
                             <div class="panel-body">
                                 <table class="table table-bordered table-hover">
                                     <tr>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Tahun</th>
-                                        <th>Type</th>
-                                        <th>Kapasitas</th>
-                                        <th>Opsi</th>
+                                        <th>{{ trans('cruds.motors.fields.no') }}</th>
+                                        <th>{{ trans('cruds.motors.fields.name') }}</th>
+                                        <th>{{ trans('cruds.motors.fields.year') }}</th>
+                                        <th>{{ trans('cruds.motors.fields.type') }}</th>
+                                        <th>{{ trans('cruds.motors.fields.capasity') }}</th>
+                                        <th>{{ trans('cruds.motors.fields.option') }}</th>
                                     </tr>
                                     @foreach ($motors as $motor)
                                     <tr>
                                         <td>{{$loop->iteration}}</td> 
-                                        <td><a href="{{route('motor.show', $motor->id)}}">{{$motor->name}} </a> </td>
+                                        <td><a href="{{route('motor.show', $motor->id)}}" class="btn btn-default">{{$motor->name}} </a> </td>
                                         <td>{{$motor->year}}</td>
                                         <td>{{$motor->type}}</td>
                                         <td>{{$motor->capasity}}</td>

@@ -86,14 +86,27 @@ return [
             'deleted_at_helper'        => ' ',
         ],
     ],
-    'majors'        => [
-        'title'             => 'Jurusan',
-        'title_singular'    => 'Jurusan',
+    'chasiers'        => [
+        'title'             => 'Data Kasir',
+        'title_singular'    => 'Kasir',
         'fields'     => [
             'id'        => 'ID',
             'no'        => 'No',
             'name'      => 'Nama Jurusan',
             'cost'      => 'Estimasi Biaya',
+            'option'    => 'OPSI'            
+        ]
+    ],
+    'motors'        => [
+        'title'             => 'Data Motor',
+        'title_singular'    => 'Motor',
+        'fields'     => [
+            'id'        => 'ID',
+            'no'        => 'No',
+            'name'      => 'Nama Motor',
+            'type'      => 'Estimasi Biaya',
+            'year'      => 'Tahun',
+            'capasity'  => 'Kapasitas',
             'option'    => 'OPSI'            
         ]
     ],

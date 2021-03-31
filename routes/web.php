@@ -20,17 +20,13 @@ Route::get('/', function () {
 
 // Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('student', StudentController::class);
-Route::resource('registration', RegistrationController::class);
-Route::resource('teacher', TeacherController::class);
-Route::resource('major', MajorController::class);
-Route::resource('permission', PermissionController::class);
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('permission', PermissionController::class);
 Route::resource('motor', MotorController::class);
 Route::resource('service', ServiceController::class);
-Route::resource('service-motor', ServiceMotorController::class);
-Route::get('user', 'UserController@index');
-// Route::get('/user/show/{id}', 'UserController@show');
 Route::resource('user', UserController::class);
+Route::resource('chasier', ChasierController::class);
 Route::resource('spare-parts', SparePartController::class);

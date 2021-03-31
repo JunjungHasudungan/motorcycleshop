@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     protected $table = 'roles';
-    protected $fillable = ['title'];
+    protected $fillable = ['name'];
 
-    public function students()
+    public function users()
     {
-        return $this->hasMany(Student::class);
+        return $this->hasMany(User::class);
     }
 }
