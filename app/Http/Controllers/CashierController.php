@@ -13,7 +13,9 @@ class CashierController extends Controller
      */
     public function index()
     {
-        //
+        $cashiers = Cashier::all();
+
+        dd($cashiers);
     }
 
     /**

@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleTableSeeder::class,
             MotorTableSeeder::class,
-            // SparepartTableSeeder::class,
+            SparepartTableSeeder::class,
             UserTableSeeder::class,
             PermissionTableSeeder::class,
             CapasityTableSeeder::class,

@@ -16,6 +16,7 @@ class UserController extends Controller
         $users = User::paginate(5);
 
         return view('user.index', compact('users'));
+        // dd('users');
     }
 
     public function create()

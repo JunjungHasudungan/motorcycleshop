@@ -21,6 +21,7 @@ class MotorController extends Controller
         $motors = Motor::paginate(5);
 
         return view('motor.index', compact('motors'));
+        // dd('motors');
     }
 
     /**

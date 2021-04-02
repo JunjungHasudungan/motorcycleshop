@@ -20,7 +20,7 @@ class MotorApiController extends Controller
     {   
         // abort_if(Gate::denies('motor_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new MotorResource(Motor::all());   
+        // return new MotorResource(Motor::all());   
     }
 
     /**

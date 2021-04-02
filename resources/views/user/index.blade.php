@@ -26,7 +26,6 @@
                         <th>{{ trans('cruds.user.fields.id') }}</th>
                         <th>{{ trans('cruds.user.fields.name') }}</th>
                         <th>{{ trans('cruds.user.fields.email') }}</th>
-                        <th>{{ trans('cruds.user.fields.email_verified_at') }}</th>
                         <th>{{ trans('cruds.user.fields.roles') }}</th>
                         {{-- <th>&nbsp;</th> --}}
                     </tr>
@@ -45,9 +44,6 @@
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}
-                            </td>
-                            <td>
-                                {{ $user->email_verified_at ?? '' }}
                             </td>
                             <td>
                                 @foreach ($user->roles as $key => $item)

@@ -21,6 +21,6 @@ class Motor extends Model
 
     public function spareparts()
     {
-        return $this->hasMany(SparePart::class)->latest();
+        return $this->hasMany(Sparepart::class)->latest();
     }
 }

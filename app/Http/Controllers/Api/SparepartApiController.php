@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Sparepart;
-// use App\Models\Motor;
-use App\Http\Request\StoreSparepartRequest;
-use Gate;
-use Symphony\Component\HttpFoundation\Response;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Sparepart;
+use App\Http\Resources\SpartpartResource;
 
-class SparePartController extends Controller
+class SparepartApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,21 +16,7 @@ class SparePartController extends Controller
      */
     public function index()
     {
-        // abort_if(Gate::denies('sparepart_accsess'), Response::HTTP_FORBIDDEN, 'Forbidden');
-        $spareparts = Sparepart::all();
-
-        // return view('sparepart.index', compact('spareparts'));
-        dd('spareparts');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new SpartpartResource(Sparepart::with('motors')->get());
     }
 
     /**
@@ -53,17 +37,6 @@ class SparePartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }

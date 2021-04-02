@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('motor', 'Api\\MotorApiController');
 Route::apiResource('capasity', 'Api\\CapasityApiController');
 Route::apiResource('user', 'Api\\UserApiController');
+Route::apiResource('sparepart', 'Api\\SparepartApiController');

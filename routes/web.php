@@ -29,4 +29,5 @@ Route::resource('motor', MotorController::class);
 Route::resource('service', ServiceController::class);
 Route::resource('user', UserController::class);
 Route::resource('chasier', ChasierController::class);
-Route::resource('spare-parts', SparePartController::class);
+Route::resource('sparepart', SparePartController::class);
+// Route::resource('capasity', [UserController::class]);
