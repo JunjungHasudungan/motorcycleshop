@@ -36,6 +36,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
+    public function getIsMechanic()
+    {
+        return $this->roles()->where('id', 2)->exists();
+    } 
+
     public function motors()
     {
         return $this->belongsToMany(Motor::class);

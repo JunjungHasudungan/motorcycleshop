@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chasier extends Model
 {
-    //
+    protected $table = 'chasiers';
+
+    protected $fillable = [];
 }

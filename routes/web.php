@@ -20,14 +20,37 @@ Route::get('/', function () {
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('permission', PermissionController::class);
-Route::resource('motor', MotorController::class);
-Route::resource('service', ServiceController::class);
-Route::resource('user', UserController::class);
-Route::resource('chasier', ChasierController::class);
-Route::resource('sparepart', SparePartController::class);
-// Route::resource('capasity', [UserController::class]);
+Route::group([
+    'prefix' => 'admin',
+    'namespace' =>'admin'
+], function(){
+    
+    // Chasiers
+    Route::resource('chasier', 'ChasierController');
+    
+    // Motors 
+    Route::resource('motor', 'MotorController');
+    
+    // Permissions
+    Route::resource('permission', 'PermissionController');
+
+    // Services
+    Route::resource('service', 'ServiceController');
+
+    // Users
+    Route::resource('user', 'UserController');
+
+    // Spareparts
+    Route::resource('sparepart', 'SparePartController');
+    
+    // Capasities
+    Route::resource('capasity', 'CapasityController');
+
+    // Roles 
+    Route::resource('role', 'RoleController');
+});
+    
+    // Route::get('/home', 'HomeController@index')->name('home');

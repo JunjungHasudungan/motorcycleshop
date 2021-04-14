@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\Cashier;
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Chasier;
 use Illuminate\Http\Request;
 
-class CashierController extends Controller
+class ChasierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +15,9 @@ class CashierController extends Controller
      */
     public function index()
     {
-        $cashiers = Cashier::all();
-
-        dd($cashiers);
+        $chasiers = Chasier::all();
+        
+        dd($chasiers);
     }
 
     /**
@@ -42,10 +44,10 @@ class CashierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Chasier  $chasier
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Chasier $chasier)
     {
         //
     }
@@ -53,10 +55,10 @@ class CashierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Chasier  $chasier
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Chasier $chasier)
     {
         //
     }
@@ -65,10 +67,10 @@ class CashierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Chasier  $chasier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Chasier $chasier)
     {
         //
     }
@@ -76,10 +78,10 @@ class CashierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Chasier  $chasier
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Chasier $chasier)
     {
         //
     }

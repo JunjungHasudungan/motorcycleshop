@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Motor;
+use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreMotorRequest;
-use Symfony\Component\HttpFoundation\Response;
-use Gate;
 
-class MotorController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +15,9 @@ class MotorController extends Controller
      */
     public function index()
     {
-        // abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $motors = Motor::paginate(5);
+        $roles = Role::all();
 
-        return view('motor.index', compact('motors'));
-        // dd('motors');
+        dd($roles);
     }
 
     /**
@@ -31,9 +27,7 @@ class MotorController extends Controller
      */
     public function create()
     {
-        // abort_if(Gate::denies('motor_access'), Response::HTTP_CREATED_AT);
-
-        return view('motor.create');
+        //
     }
 
     /**
@@ -42,33 +36,29 @@ class MotorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMotorRequest $request)
+    public function store(Request $request)
     {
-        $motor = Motor::create($request->all());
-
-        return redirect()->route('motor.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Motor $motor)
+    public function show(Role $role)
     {
-        //abort_if(Gate::denies('motor_show'), Response::HTTP_FORBIDDEN, '403, Forbidden');
-
-        return view('motor.show', compact('motor'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
         //
     }
@@ -77,10 +67,10 @@ class MotorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
         //
     }
@@ -88,10 +78,10 @@ class MotorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
         //
     }

@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>Registration page</h1>
+    <h1>Capasities Page index</h1>
 @endsection
