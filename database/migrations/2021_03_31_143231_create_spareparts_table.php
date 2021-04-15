@@ -6,28 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSparepartsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('spareparts', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('id_sparepart');
             $table->string('name');
             $table->double('price', 8, 0);
-            $table->integer('motor_id')->index();
+
+            $table->unsignedInteger('motor_id')->unique();
+            $table->foreign('motor_id')->references('id')->on('motors')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('spareparts');

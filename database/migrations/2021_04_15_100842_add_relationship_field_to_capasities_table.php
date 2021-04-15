@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCapasityTable extends Migration
+class AddRelationshipFieldToCapasitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateCapasityTable extends Migration
      */
     public function up()
     {
-        Schema::create('capasity', function (Blueprint $table) {
-            $table->id();
-            $table->string('capasity');
-            $table->timestamps();
+        Schema::table('motors', function (Blueprint $table) {
+
+            $table->unsignedInteger('capasity_id')->unique();
+            $table->foreign('capasity_id')->references('id')->on('capasities'); 
+
         });
     }
 
@@ -27,6 +28,8 @@ class CreateCapasityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('capasity');
+        Schema::table('motors', function (Blueprint $table) {
+            //
+        });
     }
 }

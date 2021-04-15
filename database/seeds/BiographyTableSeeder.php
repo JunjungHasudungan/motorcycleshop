@@ -19,7 +19,7 @@ class BiographyTableSeeder extends Seeder
                 'birthdayOfDate'    => '18 Maret 1993', 
                 'domicile'          => 'Cirebon', 
                 'gender'            => 'Laki-Laki', 
-                'user_id'           => 1
+                'user_id'           => 1 // admin
             ],
             [
                 'id'                => 2,

@@ -4,17 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMotorsTable extends Migration
+class CreateJasaservicesTable extends Migration
 {
 
     public function up()
     {
-        Schema::create('motors', function (Blueprint $table) {
+        Schema::create('jasaservices', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('id_jasaservice');
             $table->string('name');
-            $table->string('type');
-            $table->string('year');
-            $table->string('no_plat')->nullable();
+            $table->double('price', 8, 0);
+
+            $table->unsignedInteger('motor_id')->nullable();
+            $table->foreign('motor_id')->references('id')->on('motors');
+            $table->unique(['motor_id', 'user_id']);
 
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
@@ -25,6 +28,6 @@ class CreateMotorsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('motors');
+        Schema::dropIfExists('jasaservices');
     }
 }

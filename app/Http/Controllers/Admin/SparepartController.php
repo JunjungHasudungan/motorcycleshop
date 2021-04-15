@@ -14,7 +14,7 @@ class SparepartController extends Controller
     public function index()
     {
         // abort_if(Gate::denies('sparepart_accsess'), Response::HTTP_FORBIDDEN, 'Forbidden');
-        $spareparts = Sparepart::all();
+        $spareparts = Sparepart::with('motors');
 
         // return view('sparepart.index', compact('spareparts'));
         dd('spareparts');

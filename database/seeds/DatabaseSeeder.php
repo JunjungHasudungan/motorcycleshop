@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CapasityTableSeeder::class,
             RoleUserTableSeeder::class,
             BiographyTableSeeder::class,
+            PermissionRoleTableSeeder::class,
             ]);
     }
 }

@@ -38,7 +38,7 @@
                                  {{ $user->id ?? '' }} 
                             </td>
                             <td>
-                                <a href="{{route('user.show', $user->id)}}" class=" btn btn-default">
+                                <a href="{{route('admin.user.show', $user->id)}}" class=" btn btn-default">
                                      {{ $user->name ?? '' }}
                                 </a>
                             </td>
@@ -57,8 +57,8 @@
         </div>
     </div>
 
-    <div class="card-footer">
+{{--     <div class="card-footer">
         {{ $users->links() }}
-    </div>
+    </div> --}}
 </div>
 @endsection

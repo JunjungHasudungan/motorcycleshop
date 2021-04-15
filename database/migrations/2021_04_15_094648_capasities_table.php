@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegistrationsTable extends Migration
+class CapasitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateRegistrationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('registrations', function (Blueprint $table) {
-            $table->id();
-            $table->integer('student_id');
-            $table->integer('subject_id');
-            $table->date('registration_date');
-            $table->string('period');
+        Schema::create('capasities', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('capacity');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateRegistrationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registrations');
+        Schema::dropIfExists('capasities');
     }
 }

@@ -91,17 +91,17 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('chasier.index')}}">
+                            <a class="c-sidebar-nav-link" href="#">
                                     <i class="c-sidebar-nav-icon fas fa-chalkboard-teacher"></i> {{ trans('cruds.chasiers.title') }} 
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('user.index')}}">
+                            <a class="c-sidebar-nav-link" href="{{route('admin.user.index')}}">
                                     <i class="c-sidebar-nav-icon fas fa-users"></i>  {{ trans('cruds.user.title_singular') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                            <a class="c-sidebar-nav-link" href="{{route('motor.index')}}">
+                            <a class="c-sidebar-nav-link" href="{{route('admin.motor.index')}}">
                                     <i class="c-sidebar-nav-icon fas fa-motorcycle"></i> {{ trans('cruds.motors.title') }} 
                                 </a>
                             </li>

@@ -25,6 +25,7 @@ Route::get('/', function () {
 
 Route::group([
     'prefix' => 'admin',
+    'as'        => 'admin.',
     'namespace' =>'admin'
 ], function(){
     

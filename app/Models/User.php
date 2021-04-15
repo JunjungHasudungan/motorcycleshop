@@ -51,4 +51,8 @@ class User extends Authenticatable
         return $this->hasOne(Biography::class);
     }
 
+    public function scopeActive($query, $order)
+    {
+        return $query->where('name', 3)->orderBy('created_at', $order);
+    }
 }

@@ -18,7 +18,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('motor', 'Api\\MotorApiController');
-Route::apiResource('capasity', 'Api\\CapasityApiController');
-Route::apiResource('user', 'Api\\UserApiController');
-Route::apiResource('sparepart', 'Api\\SparepartApiController');
+Route::group(['prefix' => 'admin', 'namespace'   => 'Api\Admin', 'middleware'   =>[]
+], function(){
+    // Motors
+    Route::apiResource('motor', 'MotorApiController');
+
+    // Capasities
+    Route::apiResource('capasity', 'CapasityApiController');
+
+    // Users
+    Route::apiResource('user', 'UserApiController');
+
+    // Spareparts
+    Route::apiResource('sparepart', 'SparepartApiController');
+
+    // Permissions
+    Route::apiResource('permission', 'PermissionApiController');
+});
+
+

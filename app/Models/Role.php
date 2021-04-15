@@ -9,8 +9,13 @@ class Role extends Model
     protected $table = 'roles';
     protected $fillable = ['name'];
 
-    public function users()
+    public function rolesUsers()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
     }
 }

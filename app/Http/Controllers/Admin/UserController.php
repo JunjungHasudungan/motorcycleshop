@@ -13,10 +13,19 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        // abort_if(Gate::denies('user_access', Response::HTTP_FORBIDDEN, '403 Forbidden'));
 
+        $users = User::when($request->role, function($query) use($request) {
+            $query->whereHas('roles', function($query) use($request){
+                $query->whereId($request->role);
+            });
+        })->get();
+
+        // $users = User::active('ASC')->get();
+
+        // return view('admin.users.index', compact('users'));
         dd($users);
     }
 
@@ -36,13 +45,19 @@ class UserController extends Controller
     {
         $user->create($request->all());
 
-        return redirect()->route('user.index');
+        $user->roles()->sync($request->input('roles', []));
+
+        return redirect()->route('admin.users.index');
     }
 
 
     public function show(User $user)
     {
-        
+    // abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+     $user->load('roles', 'biographies');
+     
+     return view('admin.users.show', compact('user'));
     }
 
 

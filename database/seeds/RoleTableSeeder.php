@@ -13,36 +13,36 @@ class RoleTableSeeder extends Seeder
     {
         $roles = [
             [
-                'id'    => '1',
+                'id'    => 1,
                 'name'  => 'admin',
             ],
             [
-                'id'    => '2',
-                'name'  => 'mekanik'
+                'id'    => 2,
+                'name'  => 'mekanik',
             ],
             [
-                'id'    => '3',
-                'name'  => 'kasir'
+                'id'    => 3,
+                'name'  => 'kasir',
             ],
             [
-                'id'    => '4',
-                'name'  => 'service advisor'
+                'id'    => 4,
+                'name'  => 'service advisor',
             ],
             [
-                'id'    => '5',
-                'name'  => 'service counter'
+                'id'    => 5,
+                'name'  => 'service counter',
             ],
             [
-                'id'    => '6',
-                'name'  => 'customers service'
+                'id'    => 6,
+                'name'  => 'customers service',
             ],
             [
-                'id'    => '7',
-                'name'  => 'user'
+                'id'    => 7,
+                'name'  => 'user',
             ],
             [
-                'id'    => '8',
-                'name'  => 'debt collector'
+                'id'    => 8,
+                'name'  => 'debt collector',
             ]
         ];
         Role::insert($roles);

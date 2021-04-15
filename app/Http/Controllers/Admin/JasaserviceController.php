@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Jasaservice;
 use Illuminate\Http\Request;
-use App\Models\Sparepart;
-use App\Http\Resources\SpartpartResource;
 
-class SparepartApiController extends Controller
+class JasaserviceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,17 @@ class SparepartApiController extends Controller
      */
     public function index()
     {
-        return new SpartpartResource(Sparepart::with('motors')->get());
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -33,10 +42,21 @@ class SparepartApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Jasaservice  $jasaservice
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jasaservice $jasaservice)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Jasaservice  $jasaservice
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Jasaservice $jasaservice)
     {
         //
     }
@@ -45,10 +65,10 @@ class SparepartApiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Jasaservice  $jasaservice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jasaservice $jasaservice)
     {
         //
     }
@@ -56,10 +76,10 @@ class SparepartApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Jasaservice  $jasaservice
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jasaservice $jasaservice)
     {
         //
     }
