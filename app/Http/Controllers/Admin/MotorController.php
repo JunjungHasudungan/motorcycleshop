@@ -12,11 +12,10 @@ class MotorController extends Controller
     public function index()
     {
         // abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $motors = Motor::with('capasities')->get();
 
-        $motors = Motor::all();
-
-        // return view('admin.motor.index', compact('motors'));
-        dd($motors);
+        return view('welcome', compact('motors'));
+        // dd($motors);
     }
 
     public function create()

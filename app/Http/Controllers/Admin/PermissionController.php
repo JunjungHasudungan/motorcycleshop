@@ -8,16 +8,13 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $permissions = Permission::all();
 
-        dd($permissions);
+        return view('admin.permissions.index', compact('permissions'));
+        // dd($permissions);
     }
 
     /**

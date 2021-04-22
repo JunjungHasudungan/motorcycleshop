@@ -14,10 +14,8 @@ class CreateSparepartsTable extends Migration
             $table->string('id_sparepart');
             $table->string('name');
             $table->double('price', 8, 0);
-
-            $table->unsignedInteger('motor_id')->unique();
-            $table->foreign('motor_id')->references('id')->on('motors')->onDelete('cascade');
             $table->timestamps();
+            $table->string('slug')->nullable();
         });
     }
 

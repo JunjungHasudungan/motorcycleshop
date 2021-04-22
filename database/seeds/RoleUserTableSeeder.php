@@ -1,23 +1,20 @@
 <?php
 
-use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RoleUserTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
+    
     public function run()
     {
-        User::findOrFail(1)->roles()->sync(1);
-        User::findOrFail(2)->roles()->sync(2);
-        User::findOrFail(3)->roles()->sync(3);
-        User::findOrFail(4)->roles()->sync(4);
-        User::findOrFail(5)->roles()->sync(5);
-        User::findOrFail(6)->roles()->sync(6);
-        User::findOrFail(7)->roles()->sync(7);
+        Role::findOrFail(1)->roleUsers()->sync(1); // admin
+        Role::findOrFail(2)->roleUsers()->sync([2, 8, 9, 10]); // Mechanics
+        Role::findOrFail(3)->roleUsers()->sync(3); // Chasier
+        Role::findOrFail(4)->roleUsers()->sync(4); // Service Advisor
+        Role::findOrFail(5)->roleUsers()->sync(5); // Customers Services
+        Role::findOrFail(6)->roleUsers()->sync(6); // User-General
+        Role::findOrFail(7)->roleUsers()->sync([7, 11, 12]); // Debt Collector
     }
 }

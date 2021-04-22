@@ -1,34 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.front')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Family Tree</title>
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{asset('/css/family-tree.css')}}">
-    <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar-expand-lg navbar-dark bg-secondary fixed-top">
-        <div class="container text-center">
-            <a href="/" class="navbar-brand "> <h6>Family Tree</h6></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
+@section('content')
 
-<div id="app">
-    <family></family>
-</div>
+    <div class="content-wrapper">
+        <section class="content">
+            {{--  <div class="card">  --}}
+                <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                    
+                    @foreach ($motors as $motor)
+                        
+                    <div class="col-12 col-sm-6 col-md-4 mb-4 d-flex align-items-stretch">
+                        <div class="card bg-light">
+                        <div class="card-header mb-2">
+                        </div>
+                        <!-- card-body -->
+                        <div class="card-body pt-0">
+                            <div class="row">
+                            <!-- col -->
+                                <div class="col-12 text-center">
+                                <h2 class="lead">
+                                    <b> {{$motor->name}} - </b>
+                                    @foreach ($motor->capasities as $item)
+                                        {{ $item->capasity }}
+                                    @endforeach
+                                </h2>
 
-<footer class="footer py-5 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website {{ date('D-M-Y') }}</p>
+                                {{--  <img src="{{('gambar/User1.jpg')}}" alt="" class="img-circle img-fluid">  --}}
+                            </div>  
+                            
+                            <div class="col-7">
+                            </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="mt-4">
+                            <div class="btn btn-outline-info" >
+                                <a href="{{route('admin.motor.show', $motor->id)}}" style="text-decoration:none">Rental</a>  
+                            </div>
+                            <div class="btn btn-secondary">
+                                <a href="#" style="text-decoration:none">Test </a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    
+                    </div>
+                    </div>
+                </div>
+            {{--  </div>  --}}
+        </section>
     </div>
-</footer>
-
-<script src="{{ mix('js/app.js') }}"></script>
-</body>
-</html>
+  <!-- /.content-wrapper -->
+@endsection

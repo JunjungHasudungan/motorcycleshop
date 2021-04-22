@@ -8,16 +8,11 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $roles = Role::all();
 
-        dd($roles);
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**

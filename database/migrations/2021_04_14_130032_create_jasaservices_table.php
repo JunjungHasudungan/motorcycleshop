@@ -14,13 +14,6 @@ class CreateJasaservicesTable extends Migration
             $table->string('id_jasaservice');
             $table->string('name');
             $table->double('price', 8, 0);
-
-            $table->unsignedInteger('motor_id')->nullable();
-            $table->foreign('motor_id')->references('id')->on('motors');
-            $table->unique(['motor_id', 'user_id']);
-
-            $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

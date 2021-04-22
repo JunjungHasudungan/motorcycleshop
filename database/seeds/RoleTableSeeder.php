@@ -4,11 +4,8 @@ use Illuminate\Database\Seeder;
 use App\Models\Role;
 class RoleTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
+    
     public function run()
     {
         $roles = [
@@ -18,32 +15,28 @@ class RoleTableSeeder extends Seeder
             ],
             [
                 'id'    => 2,
-                'name'  => 'mekanik',
+                'name'  => 'Mechanic',
             ],
             [
                 'id'    => 3,
-                'name'  => 'kasir',
+                'name'  => 'Chasier',
             ],
             [
                 'id'    => 4,
-                'name'  => 'service advisor',
+                'name'  => 'Service Advisor',
             ],
             [
                 'id'    => 5,
-                'name'  => 'service counter',
+                'name'  => 'Customers Service',
             ],
             [
                 'id'    => 6,
-                'name'  => 'customers service',
+                'name'  => 'User General',
             ],
             [
                 'id'    => 7,
-                'name'  => 'user',
+                'name'  => 'Debt Collector',
             ],
-            [
-                'id'    => 8,
-                'name'  => 'debt collector',
-            ]
         ];
         Role::insert($roles);
     }

@@ -8,5 +8,5 @@ class Jasaservice extends Model
 {
     protected $table = 'jasaservices';
 
-    protected $fillable = ['name', 'price'];
+    protected $fillable = ['name', 'price', 'slug'];
 }

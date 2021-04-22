@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Motor extends Model
 {
     protected $table = 'motors';
-    protected $fillable = ['name'. 'type', 'year', 'capasity_id', 'user_id', 'no_plat' ];
+
+    protected $fillable = ['name'. 'type', 'year', 'no_plat', 'slug' ];
 
 
     public function users()
@@ -17,7 +18,7 @@ class Motor extends Model
 
     public function spareparts()
     {
-        return $this->hasMany(Sparepart::class)->latest();
+        return $this->belongsToMany(\App\Models\Sparepart::class, 'spartpart_motor', 'sparepart_id', 'motor_id');
     }
 
     public function jasaservices()
@@ -27,6 +28,6 @@ class Motor extends Model
 
     public function capasities()
     {
-        return $this->belongsTo(Capasity::class, 'capasity_id');
+        return $this->belongsToMany(Capasity::class);
     }
 }

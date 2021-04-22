@@ -13,15 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
-// Auth::routes();
 
-
-// Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+// Admin
 
 Route::group([
     'prefix' => 'admin',
@@ -29,29 +25,33 @@ Route::group([
     'namespace' =>'admin'
 ], function(){
     
-    // Chasiers
-    Route::resource('chasier', 'ChasierController');
-    
+    // Route::get('/', 'Home')
+    Route::get('/', 'HomePageController@index')->name('home');
     // Motors 
-    Route::resource('motor', 'MotorController');
+    Route::resource('motors', 'MotorController');
     
     // Permissions
-    Route::resource('permission', 'PermissionController');
+    Route::resource('permissions', 'PermissionController');
 
     // Services
     Route::resource('service', 'ServiceController');
 
     // Users
-    Route::resource('user', 'UserController');
+    Route::resource('users', 'UserController');
 
     // Spareparts
-    Route::resource('sparepart', 'SparePartController');
+    Route::resource('spareparts', 'SparePartController');
     
     // Capasities
     Route::resource('capasity', 'CapasityController');
 
     // Roles 
-    Route::resource('role', 'RoleController');
+    Route::resource('roles', 'RoleController');
+
+    // Mechanics
+
+    // Route::resource('mechaniecs', UserController::class]);
+    // Chasiers
 });
     
     // Route::get('/home', 'HomeController@index')->name('home');

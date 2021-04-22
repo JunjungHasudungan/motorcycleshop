@@ -5,6 +5,10 @@ return [
         'title'          => 'User management',
         'title_singular' => 'User management',
     ],
+    'motorManagement' => [
+        'title'          => 'Motor management',
+        'title_singular' => 'Motor management',
+    ],
     'permission'     => [
         'title'          => 'Permissions',
         'title_singular' => 'Permission',
@@ -98,7 +102,7 @@ return [
         ]
     ],
     'motors'        => [
-        'title'             => 'Data Motor',
+        'title'             => 'Motor',
         'title_singular'    => 'Motor',
         'fields'     => [
             'id'        => 'ID',

@@ -15,9 +15,8 @@ class CreateMotorsTable extends Migration
             $table->string('type');
             $table->string('year');
             $table->string('no_plat')->nullable();
+            $table->string('slug')->nullable();
 
-            $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

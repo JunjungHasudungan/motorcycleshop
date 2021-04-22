@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Capasity extends Model
 {
-    protected $table = 'capasity';
-    protected $fillable = ['capasity', 'motor_id'];   
+    protected $table = 'capasities';
+
+    protected $fillable = ['capasity'];   
 
     public function motors()
     {
-        return $this->belongsTo(Motor::class, 'motor_id');
+        return $this->belongsToMany(Motor::class);
     }
 }

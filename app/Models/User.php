@@ -21,6 +21,7 @@ class User extends Authenticatable
         'deleted_at',
         'remember_token', 
         'email_verified_at', 
+        'slug',
     ];
 
     protected $hidden = [
@@ -33,7 +34,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(\App\Models\Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     public function getIsMechanic()

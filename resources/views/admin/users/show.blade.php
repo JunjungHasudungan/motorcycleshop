@@ -1,15 +1,15 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            {{ trans('cruds.role.title') }}
+            {{ trans('global.show') }} {{ trans('cruds.user.title') }}
         </div>
 
         <div class="card-body">
             <div class="form-group">
                 <div class="form-group">
-                    <a href="{{route('user.index')}}" class="btn btn-default">
+                    <a href="{{route('admin.users.index')}}" class="btn btn-default">
                         {{ trans('global.back_to_list') }}
                     </a>
                 </div>

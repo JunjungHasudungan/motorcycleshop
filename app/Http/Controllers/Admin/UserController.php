@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
-use App\Request\StoreUserRequest;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,8 +26,8 @@ class UserController extends Controller
 
         // $users = User::active('ASC')->get();
 
-        // return view('admin.users.index', compact('users'));
-        dd($users);
+        return view('admin.users.index', compact('users'));
+        // dd($users);
     }
 
 
@@ -36,15 +37,14 @@ class UserController extends Controller
 
         $roles = Role::all()->pluck('name', 'id'); // user role
 
-        // return view('user.create', compact('roles'));
-        dd($roles);
+        return view('admin.users.create', compact('roles'));
+        // dd($roles);
     }
 
 
     public function store(StoreUserRequest $request)
     {
-        $user->create($request->all());
-
+        $user = User::create($request->all());
         $user->roles()->sync($request->input('roles', []));
 
         return redirect()->route('admin.users.index');
@@ -63,13 +63,15 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $user->load(['roles','biographies']);
+        $roles = Role::all()->pluck('name', 'id');
 
-        return view('user.show', compact('user'));
+        $user->load('roles');
+
+        return view('admin.users.edit', compact('roles', 'user'));
     }
 
     
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         //
     }

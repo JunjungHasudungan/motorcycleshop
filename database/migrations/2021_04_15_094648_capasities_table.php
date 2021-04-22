@@ -6,25 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 class CapasitiesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('capasities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('capacity');
+            $table->string('capasity');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('capasities');

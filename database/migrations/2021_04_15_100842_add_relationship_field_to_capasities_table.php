@@ -6,26 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 class AddRelationshipFieldToCapasitiesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('motors', function (Blueprint $table) {
 
-            $table->unsignedInteger('capasity_id')->unique();
-            $table->foreign('capasity_id')->references('id')->on('capasities'); 
+
+            // $table->unsignedInteger('user_id')->nullable();
+            // $table->foreign('user_id')->references('id')->on('users');
+
+            // $table->unsignedInteger('capasity_id');
+            // $table->foreign('capasity_id')->references('id')->on('capasities');
+
+
 
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('motors', function (Blueprint $table) {

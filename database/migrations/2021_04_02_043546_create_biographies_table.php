@@ -18,7 +18,7 @@ class CreateBiographiesTable extends Migration
             $table->integer('id_user')->nullable();
             
             $table->unsignedInteger('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

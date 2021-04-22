@@ -1,79 +1,99 @@
-<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show">
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
 
-    <div class="c-sidebar-brand d-md-down-none">
-        <a class="c-sidebar-brand-full h4" href="#">
-            {{ trans('panel.site_title') }}
-        </a>
-    </div>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon  fas fa-fw fa-tachometer-alt">
+              
+                    </i>
+                    {{ trans('global.dashboard') }}
+                </a>
+            </li>
 
-    <ul class="c-sidebar-nav">
-        <li class="c-sidebar-nav-item">
-            <a href="#" class="c-sidebar-nav-link">
-                <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
-
-                </i>
-                {{ trans('global.dashboard') }}
-            </a>
-        </li>
-        {{--  @can('user_management_access')  --}}
-            <li class="c-sidebar-nav-dropdown">
-                <a class="c-sidebar-nav-dropdown-toggle" href="#">
-                    <i class="fa-fw fas fa-users c-sidebar-nav-icon">
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-users nav-icon">
 
                     </i>
                     {{ trans('cruds.userManagement.title') }}
                 </a>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    {{--  @can('permission_access')  --}}
-                        <li class="c-sidebar-nav-item">
-                            <a href="#" class="c-sidebar-nav-link ">
-                                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                <ul class="nav-dropdown-items">
+                    {{-- @can('permission_access') --}}
+                        <li class="nav-item">
+                            <a href="{{route('admin.permissions.index')}}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-unlock-alt nav-icon">
 
                                 </i>
                                 {{ trans('cruds.permission.title') }}
                             </a>
                         </li>
-                        <li class="c-sidebar-nav-item">
-                            <a href="#" class="c-sidebar-nav-link ">
-                                <i class="fa-fw fas fa-briefcase c-sidebar-nav-icon">
+                    {{-- @endcan --}}
+                    {{-- @can('role_access') --}}
+                        <li class="nav-item">
+                            <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-briefcase nav-icon">
 
                                 </i>
                                 {{ trans('cruds.role.title') }}
                             </a>
                         </li>
-                        <li class="c-sidebar-nav-item">
-                            <a href="#" class="c-sidebar-nav-link ">
-                                <i class="fa-fw fas fa-user c-sidebar-nav-icon">
+                    {{-- @endcan --}}
+                    {{-- @can('user_access') --}}
+
+                        <li class="nav-item">
+                            <a href="{{route('admin.users.create')}}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-user nav-icon">
 
                                 </i>
                                 {{ trans('cruds.user.title') }}
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route("admin.users.index") }}?role=2" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-user nav-icon">
+
+                                </i>
+                                Mechanics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.index') }}?role=5" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-user nav-icon">
+
+                                </i>
+                                Customers Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-user nav-icon">
+
+                                </i>
+                                Chasiers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.index') }}?role=7" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <i class="fa-fw fas fa-user nav-icon">
+
+                                </i>
+                                Debt Colectors
+                            </a>
+                        </li>
+                    {{-- @endcan --}}
                 </ul>
             </li>
-            <li class="c-sidebar-nav-item">
-                <a href="#" class="c-sidebar-nav-link ">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+            <li class="nav-item">
+                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                    <i class="nav-icon fas fa-fw fa-sign-out-alt">
+
                     </i>
-                    {{ trans('cruds.contract.title') }}
+                    {{ trans('global.logout') }}
                 </a>
             </li>
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link " href="#">
-                        <i class="fa-fw fas fa-key c-sidebar-nav-icon">
-                        </i>
-                        {{ trans('global.change_password') }}
-                    </a>
-                </li>
-
-        <li class="c-sidebar-nav-item">
-            <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
-
-                </i>
-                {{ trans('global.logout') }}
-            </a>
-        </li>
-    </ul>
-
+        {{-- @endcan --}}
+        
+        </ul>
+    </nav>
 </div>

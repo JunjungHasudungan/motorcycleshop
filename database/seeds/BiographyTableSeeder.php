@@ -5,11 +5,7 @@ use Illuminate\Database\Seeder;
 
 class BiographyTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $biographies = [

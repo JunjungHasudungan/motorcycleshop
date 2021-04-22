@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Rental Motor',
+    'site_title' => 'Motorcycle Shop',
 ];
