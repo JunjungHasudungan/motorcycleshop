@@ -12,7 +12,7 @@ class PermissionTableSeeder extends Seeder
         $permissions = [
             [
                 'id'        => '1',
-                'title'     => 'user_accsess',
+                'title'     => 'user_access',
             ],
             [
                 'id'        => '2',
@@ -32,7 +32,7 @@ class PermissionTableSeeder extends Seeder
             ],
             [
                 'id'        => '6',
-                'title'     => 'role_accsess,'
+                'title'     => 'role_access,'
             ],
             [
                 'id'        => '7',
@@ -52,7 +52,7 @@ class PermissionTableSeeder extends Seeder
             ],
             [
                 'id'        => '11',
-                'title'     => 'motor_accsess',
+                'title'     => 'motor_access',
             ],
             [
                 'id'        => '12',
@@ -69,6 +69,66 @@ class PermissionTableSeeder extends Seeder
             [
                 'id'        => '15',
                 'title'     => 'motor_delete',
+            ],
+            [
+                'id'        => '16',
+                'title'     => 'sparepart_access',
+            ],
+            [
+                'id'        => '17',
+                'title'     => 'sparepart_create',
+            ],
+            [
+                'id'        => '18',
+                'title'     => 'sparepart_edit',
+            ],
+            [
+                'id'        => '19',
+                'title'     => 'sparepart_show',
+            ],
+            [
+                'id'        => '20',
+                'title'     => 'sparepart_delete',
+            ],
+            [
+                'id'        => '21',
+                'title'     => 'service_access',
+            ],
+            [
+                'id'        => '22',
+                'title'     => 'service_create',
+            ],
+            [
+                'id'        => '23',
+                'title'     => 'service_edit',
+            ],
+            [
+                'id'        => '24',
+                'title'     => 'service_show',
+            ],
+            [
+                'id'        => '25',
+                'title'     => 'service_delete',
+            ],
+            [
+                'id'        => '26',
+                'title'     => 'user_member_access',
+            ],
+            [
+                'id'        => '27',
+                'title'     => 'user_member_create',
+            ],
+            [
+                'id'        => '28',
+                'title'     => 'user_member_edit',
+            ],
+            [
+                'id'        => '29',
+                'title'     => 'user_member_show',
+            ],
+            [
+                'id'        => '30',
+                'title'     => 'service_delete',
             ]
         ];
         

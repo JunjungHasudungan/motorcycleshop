@@ -128,5 +128,117 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </body>
+
+    <script>
+        $(function() {
+  let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
+  let csvButtonTrans = '{{ trans('global.datatables.csv') }}'
+  let excelButtonTrans = '{{ trans('global.datatables.excel') }}'
+  let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}'
+  let printButtonTrans = '{{ trans('global.datatables.print') }}'
+  let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}'
+  let selectAllButtonTrans = '{{ trans('global.select_all') }}'
+  let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}'
+
+  let languages = {
+    'en': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/English.json'
+  };
+
+  $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, { className: 'btn' })
+  $.extend(true, $.fn.dataTable.defaults, {
+    language: {
+      url: languages['{{ app()->getLocale() }}']
+    },
+    columnDefs: [{
+        orderable: false,
+        className: 'select-checkbox',
+        targets: 0
+    }, {
+        orderable: false,
+        searchable: false,
+        targets: -1
+    }],
+    select: {
+      style:    'multi+shift',
+      selector: 'td:first-child'
+    },
+    order: [],
+    scrollX: true,
+    pageLength: 100,
+    dom: 'lBfrtip<"actions">',
+    buttons: [
+      {
+        extend: 'selectAll',
+        className: 'btn-primary',
+        text: selectAllButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'selectNone',
+        className: 'btn-primary',
+        text: selectNoneButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'copy',
+        className: 'btn-default',
+        text: copyButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'csv',
+        className: 'btn-default',
+        text: csvButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'excel',
+        className: 'btn-default',
+        text: excelButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'pdf',
+        className: 'btn-default',
+        text: pdfButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'print',
+        className: 'btn-default',
+        text: printButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'colvis',
+        className: 'btn-default',
+        text: colvisButtonTrans,
+        exportOptions: {
+          columns: ':visible'
+        }
+      }
+    ]
+  });
+
+  $.fn.dataTable.ext.classes.sPageButton = '';
+});
+
+    </script>
+    @yield('scripts')
+
+</body>
 </html>

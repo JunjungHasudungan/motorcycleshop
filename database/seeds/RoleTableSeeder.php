@@ -31,7 +31,7 @@ class RoleTableSeeder extends Seeder
             ],
             [
                 'id'    => 6,
-                'name'  => 'User General',
+                'name'  => 'User Member', 
             ],
             [
                 'id'    => 7,

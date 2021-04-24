@@ -21,19 +21,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'admin', 'namespace'   => 'Api\Admin', 'middleware'   =>[]
 ], function(){
     // Motors
-    Route::apiResource('motor', 'MotorApiController');
+    Route::apiResource('motors', 'MotorApiController');
 
     // Capasities
-    Route::apiResource('capasity', 'CapasityApiController');
+    Route::apiResource('capasities', 'CapasityApiController');
 
     // Users
-    Route::apiResource('user', 'UserApiController');
+    Route::apiResource('users', 'UserApiController');
 
     // Spareparts
-    Route::apiResource('sparepart', 'SparepartApiController');
+    Route::apiResource('spareparts', 'SparepartApiController');
 
     // Permissions
-    Route::apiResource('permission', 'PermissionApiController');
+    Route::apiResource('permissions', 'PermissionApiController');
+
+    // Roles
+    Route::apiResource('roles', 'RoleApiController');
 });
 
 

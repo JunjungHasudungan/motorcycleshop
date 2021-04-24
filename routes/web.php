@@ -19,6 +19,17 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 // Admin
 
+Route::get('/', 'HomePageController@index')->name('home');
+Route::get('/home', function () {
+    $routeName = auth()->user()->is_admin ? 'admin.posts.index' : 'admin.motors.index';
+
+    if (session('status')) {
+        return redirect()->route($routeName)->with('status', session('status'));
+    }
+
+    return redirect()->route($routeName);
+});
+
 Route::group([
     'prefix' => 'admin',
     'as'        => 'admin.',

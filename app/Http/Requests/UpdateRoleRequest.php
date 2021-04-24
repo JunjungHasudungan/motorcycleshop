@@ -4,24 +4,23 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUserRequest extends FormRequest
+class UpdateRoleRequest extends FormRequest
 {
+
     public function authorize()
     {
         return true;
     }
 
+
     public function rules()
     {
         return [
-            'name'    => [
+            'title'         => [
                 'required'],
-            'email'   => [
-                'required',
-                'unique:users,email,' . request()->route('user')->id],
-            'roles.*' => [
+            'permissions.*' => [
                 'integer'],
-            'roles'   => [
+            'permissions'   => [
                 'required',
                 'array'],
         ];

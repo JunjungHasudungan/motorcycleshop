@@ -54,7 +54,8 @@
                                 <i class="fa-fw fas fa-user nav-icon">
 
                                 </i>
-                                Mechanics
+                                {{-- Mechanic --}}
+                                {{ trans('cruds.user.title_mechanic') }} 
                             </a>
                         </li>
                         <li class="nav-item">
@@ -62,15 +63,17 @@
                                 <i class="fa-fw fas fa-user nav-icon">
 
                                 </i>
-                                Customers Services
+                                {{-- Customers Services --}}
+                                {{ trans('cruds.user.title_customer_service') }}
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                            <a href="{{route('admin.users.index')}}?role=3" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-user nav-icon">
 
                                 </i>
-                                Chasiers
+                                {{-- Chasiers --}}
+                                {{ trans('cruds.user.title_chasier') }}
                             </a>
                         </li>
                         <li class="nav-item">
@@ -78,14 +81,15 @@
                                 <i class="fa-fw fas fa-user nav-icon">
 
                                 </i>
-                                Debt Colectors
+                                {{-- Debt Colectors --}}
+                                {{ trans('cruds.user.title_debt_Colector') }}
                             </a>
                         </li>
                     {{-- @endcan --}}
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                <a href="{{route('logout')}}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
 
                     </i>

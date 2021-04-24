@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
             CapasityMotorTableSeeder::class,
             RoleUserTableSeeder::class,
             BiographyTableSeeder::class,
-            PermissionRoleTableSeeder::class,
             SparepartMotorSeeder::class,
+            PermissionRoleTableSeeder::class,
             ]);
     }
 }

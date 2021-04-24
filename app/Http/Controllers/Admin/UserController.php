@@ -47,7 +47,8 @@ class UserController extends Controller
         $user = User::create($request->all());
         $user->roles()->sync($request->input('roles', []));
 
-        return redirect()->route('admin.users.index');
+        // return redirect()->route('admin.users.index');
+        dd($user);
     }
 
 
@@ -68,17 +69,25 @@ class UserController extends Controller
         $user->load('roles');
 
         return view('admin.users.edit', compact('roles', 'user'));
+        // dd($user);
     }
 
     
     public function update(UpdateUserRequest $request, User $user)
     {
         //
+        $user->update($request->all());
+        $user->roles()->sync($request->input('roles', []));
+    
+        return redirect()->route('admin.users.index');
     }
 
 
     public function destroy(User $user)
     {
-        //
+        // abort_if(Gate::denies('user_delete), Response::HTTP_FORBBIDEN, '403 Forbidden');
+        $user->delete();
+
+        return back();
     }
 }

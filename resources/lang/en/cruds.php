@@ -53,8 +53,12 @@ return [
         ],
     ],
     'user'           => [
+        // 'title'                 => 'RW',
         'title_student'          => 'Student',
         'title_teacher'          => 'Teacher',
+        'title_mechanic'          => 'Mechanic',
+        'title_chasier'          => 'Chasier',
+        'title_debt_Colector'          => 'Debt Colector',
         'title_singular' => 'User',
         'fields'         => [
             'no'                       => 'No',
@@ -152,6 +156,10 @@ return [
     ],
     'user'           => [
         'title'          => 'Users',
+        'title_mechanic' => 'Mechanics', 
+        'title_customer_service' => 'Customers service',
+        'title_chasier'         => 'Chasiers',
+        'title_debt_Colector'          => 'Debt Colector',
         'title_singular' => 'User',
         'fields'         => [
             'id'                       => 'ID',

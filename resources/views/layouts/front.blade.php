@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Motorcycle Shop</title>
+  <title>{{ config('app.name', 'MotorShop') }}</title>
 
   <!-- FAVICON -->
   <link href="{{ asset('img/favicon.png') }}" rel="shortcut icon">
@@ -52,13 +52,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#!" class="nav-link waves-effect">
+                  <a href="{{route('login')}}" class="nav-link waves-effect">
                     Sign in
                   </a>
-                </li>
-                <li class="nav-item pl-2 mb-2 mb-md-0">
-                  <a href="#!" type="button"
-                    class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign up</a>
                 </li>
               </ul>
 

@@ -36,7 +36,7 @@
                         <div class="card-footer">
                             <div class="mt-4">
                             <div class="btn btn-outline-info" >
-                                <a href="{{route('admin.motor.show', $motor->id)}}" style="text-decoration:none">Rental</a>  
+                                <a href="{{route('admin.motors.show', $motor->id)}}" style="text-decoration:none">Rental</a>  
                             </div>
                             <div class="btn btn-secondary">
                                 <a href="#" style="text-decoration:none">Test </a>
