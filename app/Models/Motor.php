@@ -30,4 +30,9 @@ class Motor extends Model
     {
         return $this->belongsToMany(Capasity::class);
     }
+
+    public function categoriesMotors()
+    {
+        return $this->belongsToMany(Category::class, 'category_motor', 'category_id', 'motor_id');
+    }
 }

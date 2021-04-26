@@ -21,23 +21,35 @@ Auth::routes();
 
 Route::get('/', 'HomePageController@index')->name('home');
 Route::get('/home', function () {
-    $routeName = auth()->user()->is_admin ? 'admin.posts.index' : 'admin.motors.index';
+    // $routeName = auth()->user()->is_admin ? 'admin.posts.index' : 'admin.motors.index';
 
     if (session('status')) {
-        return redirect()->route($routeName)->with('status', session('status'));
+        return redirect()->route('admin.home')->with('status', session('status'));
     }
 
-    return redirect()->route($routeName);
+    return redirect()->route('admin.home');
 });
+
+
+Route::group([
+    'prefix'        => 'user',
+    'as'            => 'user.',
+    'namespace'     => 'User',
+    'middleware'    => ['auth']
+], function(){
+    Route::get('/', 'HomeController@index')->name('home');
+});
+
 
 Route::group([
     'prefix' => 'admin',
     'as'        => 'admin.',
-    'namespace' =>'admin'
+    'namespace' =>'admin',
+    // 'middleware'    => ['auth', 'admin']
 ], function(){
     
     // Route::get('/', 'Home')
-    Route::get('/', 'HomePageController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
     // Motors 
     Route::resource('motors', 'MotorController');
     

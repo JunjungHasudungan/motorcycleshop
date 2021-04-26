@@ -16,7 +16,6 @@ class CreateMotorsTable extends Migration
             $table->string('year');
             $table->string('no_plat')->nullable();
             $table->string('slug')->nullable();
-
             $table->timestamps();
         });
     }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Motor;
+use App\Models\Category;
+use App\Models\Capasity;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -12,15 +14,20 @@ class MotorController extends Controller
     public function index()
     {
         // abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $categories = Category::all();
         $motors = Motor::with('capasities')->get();
 
-        return view('welcome', compact('motors'));
+        // $motors->load(['categoriesMotors', 'capasities']);
+        return view('admin.motors.index', compact('motors', 'categories'));
         // dd($motors);
     }
 
     public function create()
     {
-        //
+        $Capasities = Capasity::all()->pluck('capasity', 'id');
+
+        return view('admin.motors.create', compact('capasities'));
+
     }
 
     public function store(StoreMotorRequest $request)
@@ -34,10 +41,10 @@ class MotorController extends Controller
     public function show(Motor $motor)
     {
         //abort_if(Gate::denies('motor_show'), Response::HTTP_FORBIDDEN, '403, Forbidden');
+        $motor->load('capasities');
 
-        return view('motor.show', compact('motor'));
-        
-        dd($motors);
+        return view('admin.motors.show', compact('motor'));
+        // dd($motor);
     }
 
     public function edit(Motor $motor)

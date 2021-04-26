@@ -16,7 +16,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 1
+            // 'category_id'   => 1
         ],
         [
             'id'            => '2',
@@ -26,7 +26,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 2
+            // 'category_id'   => 1
             // 
         ],
         [
@@ -37,7 +37,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 2
+            // 'category_id'   => 1
         ],
         [
             'id'            => '4',
@@ -47,7 +47,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 1
+            // 'category_id'   => 1
         ],
         [
             'id'            => '5',
@@ -57,7 +57,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 2
+            // 'category_id'   => 1
         ],
         [
             'id'            => '6',
@@ -67,7 +67,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 3
+            // 'category_id'   => 2
         ],
         [
             'id'            => '7',
@@ -77,7 +77,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 3
+            // 'category_id'   =>  5
         ],
         [
             'id'            => '8',
@@ -87,7 +87,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 1
+            // 'category_id'   => 3
         ],
         [
             'id'            => '9',
@@ -97,7 +97,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 3
+            // 'category_id'   => 5
         ],
         [
             'id'            => '10',
@@ -107,7 +107,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 3
+            // 'category_id'   => 4
         ],
         [
             'id'            => '11',
@@ -117,7 +117,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 2
+            // 'category_id'   => 3
         ],
         [
             'id'            => '12',
@@ -127,7 +127,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 4
+            // 'category_id'   => 2
         ],
         [
             'id'            => '13',
@@ -137,7 +137,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 1
+            // 'category_id'   => 1
         ],
         [
             'id'            => '14',
@@ -147,7 +147,7 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 1
+            // 'category_id'   => 1
         ],
         [
             'id'            => '15',
@@ -157,7 +157,17 @@ class MotorTableSeeder extends Seeder
             // 'user_id'       => 'null',
             'no_plat'       => 'null',
             'slug'          => null,            
-            // 'capasity_id'   => 1
+            // 'category_id'   => 2
+        ],
+        [
+            'id'            => '16',
+            'name'          => 'SONIC',
+            'type'          => 'SPECIAL EDITION',
+            'year'          => '2020',
+            // 'user_id'       => 'null',
+            'no_plat'       => 'null',
+            'slug'          => null,            
+            // 'category_id'   => 4
         ]
     ];
 
