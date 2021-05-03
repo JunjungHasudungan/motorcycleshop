@@ -38,9 +38,6 @@
                 </thead>
                 <tbody>
                     @foreach($motors as $key => $motor)
-                      @foreach ($motor->capasities as $item)
-                        {{--  @foreach ($motor->categoriesMotors as $category)  --}}
-                            
                         <tr data-entry-id="{{ $motor->id }}">
                             <td>
 
@@ -49,36 +46,34 @@
                                 {{ $motor->id ?? '' }} 
                             </td>
                             <td>
-                                {{ $motor->name ?? '' }} - {{ $item->capasity }} 
+                                {{ $motor->name ?? '' }} - {{ $motor->capasities->capasity }} 
                             </td>
                             <td>
                                   {{--  {{ $category->title }}  --}}
                             </td>
                             <td>
-                                {{-- @can('role_show') --}}
+                                @can('role_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.motors.show', $motor->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
-                                {{-- @endcan --}}
+                                @endcan
 
-                                {{-- @can('role_edit') --}}
+                                @can('motor_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.motors.edit', $motor->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
-                                {{-- @endcan --}}
+                                @endcan
 
-                                {{-- @can('role_delete') --}}
+                                @can('motor_delete')
                                     <form action="{{ route('admin.motors.destroy', $motor->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                     </form>
-                                {{-- @endcan --}}
+                                @endcan
 
                             </td>
                         </tr>
-                          {{--  @endforeach  --}}
-                        @endforeach
                       @endforeach
                 </tbody>
             </table>
@@ -94,11 +89,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('role_delete')
+@can('motor_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.roles.massDestroy') }}",
+    url: "{{ route('admin.motors.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {

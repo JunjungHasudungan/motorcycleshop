@@ -7,6 +7,7 @@ use App\Models\Motor;
 use App\Models\Category;
 use App\Models\Capasity;
 use Illuminate\Http\Request;
+use App\Http\Requests\MassDestroyMotorRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 class MotorController extends Controller
@@ -59,6 +60,16 @@ class MotorController extends Controller
 
     public function destroy(Motor $motor)
     {
-        //
+        $motor->delete();
+
+        return redirect()->route('admin.motors.index');
+    }
+
+    public function massDestroy(MassDestroyMotorRequest $request)
+    {
+        Motor::whereIn('id', request('ids'))->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
+
     }
 }

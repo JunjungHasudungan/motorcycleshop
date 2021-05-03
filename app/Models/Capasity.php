@@ -12,6 +12,6 @@ class Capasity extends Model
 
     public function motors()
     {
-        return $this->belongsToMany(Motor::class);
+        return $this->belongsToMany(Motor::class)->orderBy('name', 'asc');
     }
 }

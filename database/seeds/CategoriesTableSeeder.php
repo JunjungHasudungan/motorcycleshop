@@ -10,23 +10,23 @@ class CategoriesTableSeeder extends Seeder
         $categories = [
             [
                 'id'    => 1, 
-                'title' => 'matic',
+                'name' => 'matic',
             ],
             [
                 'id'    => 2, 
-                'title' => 'matic-sport',
+                'name' => 'matic-sport',
             ],
             [
                 'id'    => 3, 
-                'title' => 'manual-bebek',
+                'name' => 'manual-bebek',
             ],
             [
                 'id'    => 4, 
-                'title' => 'manual-bebek-kopling',
+                'name' => 'manual-bebek-kopling',
             ],
             [
                 'id'    => 5, 
-                'title' => 'manual-sport-kopling',
+                'name' => 'manual-sport-kopling',
             ],
         ];
 

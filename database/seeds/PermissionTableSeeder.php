@@ -96,19 +96,19 @@ class PermissionTableSeeder extends Seeder
             ],
             [
                 'id'        => '22',
-                'title'     => 'service_create',
+                'title'     => 'mechanic_create',
             ],
             [
                 'id'        => '23',
-                'title'     => 'service_edit',
+                'title'     => 'mechanic_edit',
             ],
             [
                 'id'        => '24',
-                'title'     => 'service_show',
+                'title'     => 'mechanic_show',
             ],
             [
                 'id'        => '25',
-                'title'     => 'service_delete',
+                'title'     => 'mechanic_delete',
             ],
             [
                 'id'        => '26',
@@ -128,8 +128,24 @@ class PermissionTableSeeder extends Seeder
             ],
             [
                 'id'        => '30',
+                'title'     => 'user_member_update',
+            ],
+            [
+                'id'        => '31',
                 'title'     => 'service_delete',
-            ]
+            ],
+            [
+                'id'        => '32',
+                'title'     => 'mechanic_access',
+            ],
+            [
+                'id'        => '33',
+                'title'     => 'service_create',
+            ],
+            [
+                'id'        => '34',
+                'title'     => 'service_show',
+            ],
         ];
         
         Permission::insert($permissions);

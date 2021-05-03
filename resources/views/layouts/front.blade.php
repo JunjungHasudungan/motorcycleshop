@@ -47,8 +47,13 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#!" class="nav-link waves-effect">
-                    Contact
+                  <a href="#" class="nav-link waves-effect">
+                    Product
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{route('about')}}" class="nav-link waves-effect">
+                    About
                   </a>
                 </li>
                 <li class="nav-item">

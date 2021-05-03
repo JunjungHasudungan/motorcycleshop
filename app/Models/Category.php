@@ -8,10 +8,10 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    protected $fillable = ['title'];
+    protected $fillable = ['motor_id'];
 
     public function categoriesMotors()
     {
-        return $this->belongsToMany(Motor::class, 'category_motor', 'category_id', 'motor_id');
+        return $this->belongsToMany(Motor::class, 'category_motor', 'category_id', 'motor_id')->orderBy('name','asc');
     }
 }

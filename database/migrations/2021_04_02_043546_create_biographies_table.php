@@ -13,13 +13,14 @@ class CreateBiographiesTable extends Migration
             $table->increments('id');
             $table->string('gender');
             $table->string('domicile');
-            $table->string('birthdayOfDate');
-            $table->string('birthdayOfPlace');
-            $table->integer('id_user')->nullable();
+            $table->string('birthday_of_date');
+            $table->string('birthday_of_place');
+            $table->double('id_user', 8, 0)->nullable();
             
-            $table->unsignedInteger('user_id')->unique();
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

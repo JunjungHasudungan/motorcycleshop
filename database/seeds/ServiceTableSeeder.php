@@ -12,10 +12,15 @@ class ServiceTableSeeder extends Seeder
         $services = [
             [
                 'id'                    => 1,
-                'id_service'            => '', 
-                'name'                  => '', 
-                'price'                 => '', 
-                'total_price_service'
+                'id_service'            => 'Se0001', 
+                'name'                  => 'Serivce CVT', 
+                'price'                 => '35000', 
+            ],
+            [
+                'id'                    => 2,
+                'id_service'            => 'Se0011', 
+                'name'                  => 'Serivce Injeksi', 
+                'price'                 => '35000', 
             ],
         ];
 

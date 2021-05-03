@@ -44,7 +44,7 @@
                                 {{ trans('cruds.biographies.fields.birthdayOfPlace') }}
                             </th>
                             <td>
-                                {{ $user->biographies->birthdayOfPlace }}
+                                {{ $user->biographies->birthday_of_place }}
                             </td>
                         </tr>
                         <tr>
@@ -52,7 +52,7 @@
                                 {{ trans('cruds.biographies.fields.birthdayOfDate') }}
                             </th>
                             <td>
-                                {{ $user->biographies->birthdayOfDate }}
+                                {{ $user->biographies->birthday_of_date }}
                             </td>
                         </tr>
                         <tr>

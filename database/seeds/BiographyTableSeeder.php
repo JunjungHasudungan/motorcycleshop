@@ -11,58 +11,65 @@ class BiographyTableSeeder extends Seeder
         $biographies = [
             [
                 'id'                => 1,
-                'birthdayOfPlace'   =>'Tanjung Balai, Sumatera-Utara', 
-                'birthdayOfDate'    => '18 Maret 1993', 
+                'birthday_of_place'   =>'Tanjung Balai, Sumatera-Utara', 
+                'birthday_of_date'    => '18 Maret 1993', 
                 'domicile'          => 'Cirebon', 
                 'gender'            => 'Laki-Laki', 
+                'id_user'           => 00121,
                 'user_id'           => 1 // admin
             ],
             [
                 'id'                => 2,
-                'birthdayOfPlace'   =>'Parong pong, Bandung Barat', 
-                'birthdayOfDate'    => '25 Mei 1996', 
+                'birthday_of_place'   =>'Parong pong, Bandung Barat', 
+                'birthday_of_date'    => '25 Mei 1996', 
                 'domicile'          => 'Bandung Barat', 
                 'gender'            => 'Laki-Laki', 
+                'id_user'           => 00122,
                 'user_id'           => 2
             ],
             [
                 'id'                => 3,
-                'birthdayOfPlace'   =>'Jakarta', 
-                'birthdayOfDate'    => '15 April 1997', 
+                'birthday_of_place'   =>'Jakarta', 
+                'birthday_of_date'    => '15 April 1997', 
                 'domicile'          => 'Jakarta', 
                 'gender'            => 'Laki-Laki', 
+                'id_user'           => 00123,
                 'user_id'           => 3
             ],
             [
                 'id'                => 4,
-                'birthdayOfPlace'   =>'Blintar, Jawa Tengah', 
-                'birthdayOfDate'    => '27 Agustus 1989', 
+                'birthday_of_place'   =>'Blintar, Jawa Tengah', 
+                'birthday_of_date'    => '27 Agustus 1989', 
                 'domicile'          => 'Batam', 
                 'gender'            => 'Laki-Laki', 
+                'id_user'           => 00124,
                 'user_id'           => 4
             ],
             [
                 'id'                => 5,
-                'birthdayOfPlace'   =>'Stabat, Sumatera Utara', 
-                'birthdayOfDate'    => '09 September 1993', 
+                'birthday_of_place'   =>'Stabat, Sumatera Utara', 
+                'birthday_of_date'    => '09 September 1993', 
                 'domicile'          => 'Stabat', 
                 'gender'            => 'Perempuan', 
+                'id_user'           => 00125,
                 'user_id'           => 5
             ],
             [
                 'id'                => 6,
-                'birthdayOfPlace'   =>'Aceh Singkil, Banda Aceh', 
-                'birthdayOfDate'    => '01 Oktober 1991', 
+                'birthday_of_place'   =>'Aceh Singkil, Banda Aceh', 
+                'birthday_of_date'    => '01 Oktober 1991', 
                 'domicile'          => 'Bandung', 
                 'gender'            => 'Laki-Laki', 
+                'id_user'           => 00126,
                 'user_id'           => 6
             ],
             [
                 'id'                => 7,
-                'birthdayOfPlace'   =>'Cisarua, Bandung-Barat', 
-                'birthdayOfDate'    => '28 Februari 1993', 
+                'birthday_of_place'   =>'Cisarua, Bandung-Barat', 
+                'birthday_of_date'    => '28 Februari 1993', 
                 'domicile'          => 'Cisarua', 
                 'gender'            => 'Laki-Laki', 
+                'id_user'           => 00127,
                 'user_id'           => 7
             ],
         ];

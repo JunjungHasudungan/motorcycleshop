@@ -8,5 +8,5 @@ class Service extends Model
 {
     protected $table = 'services';
 
-    protected $fillable = ['id_service', 'name', 'price', 'total_price_service'];
+    protected $fillable = ['id_service', 'name', 'price'];
 }

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Sparepart;
 use Illuminate\Http\Request;
-use App\Http\Request\StoreSparepartRequest;
+use App\Http\Requests\StoreSparepartRequest;
+use App\Http\Requests\massDestroySparepartRequest;
 use Gate;
 use Symphony\Component\HttpFoundation\Response;
 
@@ -14,10 +15,10 @@ class SparepartController extends Controller
     public function index()
     {
         // abort_if(Gate::denies('sparepart_accsess'), Response::HTTP_FORBIDDEN, 'Forbidden');
-        $spareparts = Sparepart::with('motors');
+        $spareparts = Sparepart::with('motors')->get();
 
-        // return view('sparepart.index', compact('spareparts'));
-        dd('spareparts');
+        return view('admin.spareparts.index', compact('spareparts'));
+        // dd('spareparts');
     }
 
     public function create()
@@ -32,10 +33,8 @@ class SparepartController extends Controller
 
     public function show(Sparepart $sparepart)
     {
-        $Sparepart = Sparepart::where('name',$sparepart);
-
-        // return view('spareparts.show', compact('sparepart'));
-        dd($sparepart);
+        return view('admin.spareparts.show', compact('sparepart'));
+        // dd($sparepart);
     }
 
     public function edit(Sparepart $sparepart)
@@ -50,6 +49,15 @@ class SparepartController extends Controller
 
     public function destroy(Sparepart $sparepart)
     {
-        //
+        $sparepart->delete();
+
+        return redirect()->route('admin.spareparts.index');
+    }
+
+    public function massDestroy(massDestroySparepartRequest $request)
+    {
+        Sparepart::whereIn('id', request('ids'))->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

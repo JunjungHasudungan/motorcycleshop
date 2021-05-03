@@ -9,19 +9,19 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            RoleTableSeeder::class,
-            MotorTableSeeder::class,
-            SparepartTableSeeder::class,
             UserTableSeeder::class,
+            RoleTableSeeder::class,
             PermissionTableSeeder::class,
-            CapasityTableSeeder::class,
-            CapasityMotorTableSeeder::class,
             RoleUserTableSeeder::class,
-            BiographyTableSeeder::class,
-            SparepartMotorSeeder::class,
             PermissionRoleTableSeeder::class,
             CategoriesTableSeeder::class,
-            CategoriesMotorTableSeeder::class,
+            CapasityTableSeeder::class,
+            MotorTableSeeder::class,
+            SparepartTableSeeder::class,
+            BiographyTableSeeder::class,
+            // CapasityMotorTableSeeder::class,
+            // SparepartMotorSeeder::class,
+            // CategoriesMotorTableSeeder::class,
             ]);
     }
 }

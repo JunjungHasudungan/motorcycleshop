@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Motor extends Model
 {
+    use SoftDeletes;
     protected $table = 'motors';
 
-    protected $fillable = ['name'. 'type', 'year', 'no_plat', 'slug' ];
+    protected $fillable = ['name'. 'type', 'created_by_year', 'no_plat', 'slug', 'capasity_id', 'category_id'];
 
 
     public function users()
@@ -18,21 +20,21 @@ class Motor extends Model
 
     public function spareparts()
     {
-        return $this->belongsToMany(\App\Models\Sparepart::class, 'spartpart_motor', 'sparepart_id', 'motor_id');
+        return $this->hasMany(Sparepart::class);
     }
 
-    public function jasaservices()
+    public function serviceMotors()
     {
-        return $this->hasOne(Jasaservice::class);
+        return $this->hasOne(Service::class);
     }
 
     public function capasities()
     {
-        return $this->belongsToMany(Capasity::class);
+        return $this->belongsTo(Capasity::class, 'capasity_id');
     }
 
     public function categoriesMotors()
     {
-        return $this->belongsToMany(Category::class, 'category_motor', 'category_id', 'motor_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

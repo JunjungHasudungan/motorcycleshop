@@ -90,4 +90,11 @@ class UserController extends Controller
 
         return back();
     }
+
+    public function masDestroy(massDestroyUserRequest $request)
+    {
+        User::whereIn('id', request('ids'))->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
+    }
 }

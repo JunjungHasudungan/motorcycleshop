@@ -12,6 +12,7 @@ class CapasitiesTable extends Migration
             $table->increments('id');
             $table->string('capasity');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

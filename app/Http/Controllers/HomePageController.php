@@ -9,9 +9,16 @@ class HomePageController extends Controller
 {
     public function index()
     {
-        $motors = Motor::with('capasities')->get();
+        // $motors = Motor::all();
+        $motors = Motor::with('capasities')->orderBy('name', 'asc')->get();
         
+        $motors->groupBy('capasity_id');
         // dd($motors);
         return view('home', compact('motors'));
+    }
+
+    public function about()
+    {
+        return view('about');
     }
 }

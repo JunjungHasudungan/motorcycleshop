@@ -20,10 +20,7 @@
                             <!-- col -->
                                 <div class="col-12 text-center">
                                 <h2 class="lead">
-                                    <b> {{$motor->name}} - </b>
-                                    @foreach ($motor->capasities as $item)
-                                        {{ $item->capasity }}
-                                    @endforeach
+                                    <b> {{$motor->name}} - {{ $motor->capasities->capasity }}</b>
                                 </h2>
 
                                 {{--  <img src="{{('gambar/User1.jpg')}}" alt="" class="img-circle img-fluid">  --}}

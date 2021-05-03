@@ -118,6 +118,30 @@ return [
             'capasity'  => 'Kapasitas',
             'option'    => 'OPSI'            
         ]
+    ],    
+    'spareparts'        => [
+        'title'             => 'Spareparts',
+        'title_singular'    => 'Sparepart',
+        'fields'     => [
+            'id'            => 'ID',
+            'id_sparepart'  => 'No',
+            'name'          => 'Nama Sparepart',
+            'price'          => 'Harga Sparepart',
+            'year'          => 'Tahun',
+            'categories'    => 'Kategori',
+            'capasity'      => 'Kapasitas',
+            'option'        => 'OPSI'            
+        ]
+    ],
+    'services'        => [
+        'title'             => 'Services',
+        'title_singular'    => 'Service',
+        'fields'     => [
+            'id'        => 'ID',
+            'no'        => 'No',
+            'name'      => 'Nama Service',
+            'id_service'      => 'ID Service',
+        ]
     ],
     'contract'       => [
         'title'          => 'Contracts',

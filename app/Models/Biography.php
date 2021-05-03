@@ -8,7 +8,7 @@ class Biography extends Model
 {
     protected $table = 'biographies';
     
-    protected $fillable = ['birthdayOfPlace', 'birthdayOfDate', 'domicile', 'gender', 'user_id'];
+    protected $fillable = ['id_user', 'birthday_of_place', 'birthday_of_date', 'domicile', 'gender', 'user_id'];
 
     public function users()
     {
