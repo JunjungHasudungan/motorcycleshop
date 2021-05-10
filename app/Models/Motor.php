@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Motor extends Model
 {
     use SoftDeletes;
+
     protected $table = 'motors';
 
-    protected $fillable = ['name'. 'type', 'created_by_year', 'no_plat', 'slug', 'capasity_id', 'category_id'];
+    protected $fillable = ['name', 'type', 'created_by_year', 'no_plat', 'slug', 'capasity_id', 'category_id'];
 
 
     public function users()
     {
-        return $this->belongsToMany(\App\User::class, 'motor_user', 'motor_id', 'user_id');
+        return $this->belongsToMany(User::class, 'motor_user', 'motor_id', 'user_id');
     }
 
     public function spareparts()
@@ -23,11 +24,18 @@ class Motor extends Model
         return $this->hasMany(Sparepart::class);
     }
 
-    public function serviceMotors()
+    public function motorservices()
     {
-        return $this->hasOne(Service::class);
+        return $this->belongsToMany(\App\Models\Service::class, 'motor_service', 'motor_id', 'service_id');
     }
 
+
+    public function scopeCapasity($query)
+    {
+        return $query->where('capasity_id', '>', 0);
+    }
+    
+     
     public function capasities()
     {
         return $this->belongsTo(Capasity::class, 'capasity_id');

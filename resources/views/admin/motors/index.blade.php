@@ -15,6 +15,14 @@
     </div>
 
     <div class="card-body">
+        {{--  <form action="{{route('admin.motors.search')}}" method="get">
+            <div class="input-group mb-3 col-md-3 float-right">
+                <input type="text" name="search" class="form-control" placeholder="Cari..." value="{{request()->search}}">
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">Cari</button>
+                </div>
+            </div>
+        </form>  --}}
         <div class="table-responsive">
             <table class=" table table-bordered table-striped table-hover datatable datatable-Role ">
                 <thead>
@@ -49,7 +57,7 @@
                                 {{ $motor->name ?? '' }} - {{ $motor->capasities->capasity }} 
                             </td>
                             <td>
-                                  {{--  {{ $category->title }}  --}}
+                                   {{ $motor->categoriesMotors->name }} 
                             </td>
                             <td>
                                 @can('role_show')

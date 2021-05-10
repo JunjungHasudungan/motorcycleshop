@@ -141,6 +141,7 @@ return [
             'no'        => 'No',
             'name'      => 'Nama Service',
             'id_service'      => 'ID Service',
+            'price'      => 'Harga Jasa Service',
         ]
     ],
     'contract'       => [

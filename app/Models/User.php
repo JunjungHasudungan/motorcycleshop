@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $query->where('name', 3)->orderBy('created_at', $order);
     }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }

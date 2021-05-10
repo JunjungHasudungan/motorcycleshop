@@ -12,36 +12,31 @@ class PermissionRoleTableSeeder extends Seeder
         $admin_permissions = Permission::all();
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id')); // Admin
 
-        $mechanic_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 8) == 'service_';
-        });
-        Role::findOrFail(2)->permissions()->sync($mechanic_permissions); // Mechanics
+        $mechanics = $admin_permissions->whereIn('title', ['service_access', 'service_show' ]);
+        Role::findOrFail(2)->permissions()->sync($mechanics); // Mechanics - service
 
-        $chasier_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 8) == 'service_' && substr($permission->title, 0, 10) =='sparepart_';
-        });
-        Role::findOrFail(3)->permissions()->sync($chasier_permissions); // Chasiers
+        $chasiers = $admin_permissions->whereIn('title', ['sparepart_access', 'sparepart_show', 'service_show',
+         'sparepart_create', 'sparepart_edit', 'sparepart_delete' ]);
+        Role::findOrFail(3)->permissions()->sync($chasiers); // Chasiers - service
 
-        $service_advisor_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 6) == 'motor_' && substr($permission->title, 0, 8) =='service_';
-        });
-        Role::findOrFail(4)->permissions()->sync($service_advisor_permissions); // Service Advisor
+        $service_advisors = $admin_permissions->whereIn('title', ['service_create', 'service_show', 'sparepart_access', 
+        'sparepart_access', 'sparepart_show' ]);
+        Role::findOrFail(4)->permissions()->sync($service_advisors); // Service advisors- sparepart
 
-        $customer_service_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 6) == 'motor_' && substr($permission->title, 0, 11) =='user_member_';
-        });
-        Role::findOrFail(5)->permissions()->sync($customer_service_permissions); // Customers Service 
+        $customer_services = $admin_permissions->whereIn('title', [
+            'user_member_payment_access', 'user_member_payment_create','user_member_payment_update', 
+            'user_member_payment_show', 'user_member_payment_delete','motor_access', 
+            'motor_create','motor_edit', 'motor_show', 'motor_delete'
+            ]);
+        Role::findOrFail(5)->permissions()->sync($customer_services); // Customer Service - sparepart
 
-        $user_member_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 8) == 'service_';
-        });
-        Role::findOrFail(6)->permissions()->sync($user_member_permissions); // Debt Colector
+        $user_members = $admin_permissions->whereIn('title', ['user_member_payment_show']);
+        Role::findOrFail(6)->permissions()->sync($user_members); //user member - payment
 
-        $debt_colector_permissions = $admin_permissions->filter(function ($permission) {
-            return substr($permission->title, 0, 11) == 'user_member_';
-        });
-        Role::findOrFail(7)->permissions()->sync($debt_colector_permissions); // Debt Colector
-        
+
+        $debt_collectors = $admin_permissions->whereIn('title', ['user_member_payment_show', 'user_member_payment_access']);
+        Role::findOrFail(7)->permissions()->sync($debt_collectors); //Debt Colector - payment
+    
 
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'about'                                => 'About',
     'actions'                              => 'Actions',
     'add'                                  => 'Add',
     'allRightsReserved'                    => 'All rights reserved.',
@@ -101,6 +102,7 @@ return [
     'assigned_user'                        => 'Assigned (user)',
     'attachment'                           => 'Attachment',
     'axis'                                 => 'Axis',
+    'back'                                 => 'Back',
     'back_to_list'                         => 'Back to list',
     'basic_crm'                            => 'Basic CRM',
     'budget'                               => 'Budget',
@@ -223,9 +225,11 @@ return [
     'select_dt_placeholder'                => 'Please select one of date/time fields',
     'select_users_placeholder'             => 'Please select one of your Users',
     'send'                                 => 'Send',
+    'services'                             => 'Services',
     'serial_number'                        => 'Serial number',
     'simple_user'                          => 'Simple user',
     'skype'                                => 'Skype',
+    'spareparts'                           => 'Spareparts',
     'slug'                                 => 'Slug',
     'start_date'                           => 'Start date',
     'start_time'                           => 'Start time',
@@ -236,6 +240,7 @@ return [
     'subscription-billing'                 => 'Subscriptions',
     'subscription-payments'                => 'Payments',
     'suffix'                               => 'Sufix',
+    'sigin'                                => 'Sig in',
     'tag'                                  => 'Tag',
     'tags'                                 => 'Tags',
     'task_management'                      => 'Task management',

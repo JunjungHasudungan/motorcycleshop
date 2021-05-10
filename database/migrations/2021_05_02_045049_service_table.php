@@ -18,6 +18,8 @@ class ServiceTable extends Migration
             $table->string('id_service');
             $table->string('name');
             $table->double('price', 8, 0);
+            $table->unsignedInteger('user_id')->nullable()->index();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

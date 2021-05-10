@@ -146,6 +146,35 @@ class PermissionTableSeeder extends Seeder
                 'id'        => '34',
                 'title'     => 'service_show',
             ],
+            [
+                'id'        => '35',
+                'title'     => 'user_member_payment_access',
+            ],
+            [
+                'id'        => '36',
+                'title'     => 'user_member_payment_create',
+            ],
+            [
+                'id'        => '37',
+                'title'     => 'user_member_payment_update',
+            ],
+            [
+                'id'        => '38',
+                'title'     => 'user_member_payment_show',
+            ],
+            [
+                'id'        => '39',
+                'title'     => 'user_member_payment_delete',
+            ],
+            [
+                'id'        =>'40',
+                'title'     => 'user_register',
+            ],
+            [
+                'id'        =>'41',
+                'title'     => 'user_login',
+            ]
+            
         ];
         
         Permission::insert($permissions);

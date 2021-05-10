@@ -1,13 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>{{ $motor->name }}</h1>
 
-    @foreach ($motor->capasities as $key => $item)
-            <ul>
-                <li>
-                    {{ $item->capasity }}
-                </li>
-            </ul>
-    @endforeach
+    <ul>
+        <li>
+            {{ $motor->name }} - {{ $motor->capasities->capasity }}
+        </li>
+    </ul>
 @endsection

@@ -15,11 +15,13 @@ class MotorController extends Controller
     public function index()
     {
         // abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $categories = Category::all();
-        $motors = Motor::with('capasities')->get();
+        // $motors = \App\Models\Motor::capasity()->orderBy('capasity', 'DESC')->get();
+        // $categories = Category::all();
+        // $motors = Motor::with('capasities')->get();
 
+        $motors = Motor::with('categoriesMotors')->get();
         // $motors->load(['categoriesMotors', 'capasities']);
-        return view('admin.motors.index', compact('motors', 'categories'));
+        return view('admin.motors.index', compact('motors'));
         // dd($motors);
     }
 
@@ -50,7 +52,7 @@ class MotorController extends Controller
 
     public function edit(Motor $motor)
     {
-        //
+        return view('admin.motors.edit', compact('motor'));
     }
 
     public function update(Request $request, Motor $motor)
@@ -72,4 +74,15 @@ class MotorController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
 
     }
+
+/*     public function search()
+    {
+        $motors = Motor::with('categoriesMotors')->orderBy('created_at', 'DESC');
+        if (request()->search != '') {
+            $motors = $motors->where('name', 'LIKE', '%' . request()->search . '%');
+        }
+        $motors = $motors->paginate(5);
+
+        return view('admin.motors.index', compact('motors'));
+    } */
 }

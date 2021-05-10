@@ -7,12 +7,14 @@ use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateRoleRequest;
+use App\Http\Requests\MassDestroyRoleRequest;
+use Symfony\Component\HttpFoundation\Response;
 
 class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::with('permissions')->orderBy('name', 'asc')->get();
 
         return view('admin.roles.index', compact('roles'));
         // dd($roles);
@@ -64,5 +66,12 @@ class RoleController extends Controller
      $role->delete();
      
      return back();
+    }
+
+    public function massDestroy(MassDestroyRoleRequest $request)
+    {
+        Role::whereIn('id', request('ids'))->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

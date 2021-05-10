@@ -2,30 +2,37 @@
 @section('content')
 
     <div class="row" style="margin-bottom: 10px;">
-        @can('sparepart_create')
+        @can('service_create')
             <div class="col-lg-12">
-                <a href="{{route('admin.spareparts.create')}}" class="btn btn-success">
-                    {{ trans('global.add') }} {{ trans('cruds.spareparts.title_singular') }}
+                <a href="{{route('admin.services.create')}}" class="btn btn-success">
+                    {{ trans('global.add') }} {{ trans('cruds.services.title_singular') }}
                 </a>
             </div>
         @endcan
     </div>
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('cruds.spareparts.title_singular') }} {{ trans('global.list') }}
-    </div>
-
     
-    <div class="card-body">
-        <form action="{{ route('admin.spareparts.search') }}" method="get">
+    <div class="card">
+        <div class="card-header">
+            {{ trans('cruds.services.title_singular') }} {{ trans('global.list') }}
+        </div>
+        
+        
+        <div class="card-body">
+            <div class="form-group">
+                <a href="{{route('home')}}" class="btn btn-default">
+                    {{ trans('global.back') }}
+                </a>
+            </div>
+
+            {{--     <form action="{{ route('admin.services.search') }}" method="get">
             <div class="input-group mb-3 col-md-3 float-right">
                 <input type="text" name="search" class="form-control" placeholder="Cari..." value="{{request()->search}}">
                 <div class="input-group-append">
                     <button class="btn btn-secondary" type="button">Cari</button>
                 </div>
             </div>
-        </form>
+        </form> --}}
         <div class="table-responsive">
             <table class=" table table-bordered table-striped table-hover datatable datatable-Role ">
                 <thead>
@@ -34,16 +41,16 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.spareparts.fields.id') }}
+                            {{ trans('cruds.services.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.spareparts.title') }}
+                            {{ trans('cruds.services.fields.id_service') }}
                         </th>
                         <th>
-                            {{ trans('cruds.spareparts.fields.categories') }}
+                            {{ trans('cruds.services.fields.name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.spareparts.fields.price') }}
+                            {{ trans('cruds.services.fields.price') }}
                         </th>
                         <th >
                             &nbsp;
@@ -51,38 +58,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($spareparts as $key => $sparepart)
-                        <tr data-entry-id="{{ $sparepart->id }}">
+                    @foreach($services as $key => $service)
+                        <tr data-entry-id="{{ $service->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $sparepart->id ?? '' }} 
+                                {{ $service->id ?? '' }} 
                             </td>
                             <td>
-                                {{ $sparepart->name ?? '' }}  
+                                {{ $service->id_service ?? ''}}
                             </td>
                             <td>
-                                 {{ $sparepart->motors->name }} - {{ $sparepart->motors->type }}
+                                  {{ $service->name }} 
+
+{{--                                  @foreach ($service->motors as $motor)
+                                   <ul>
+                                       {{ $motor->name ?? '' }}  - {{ $motor->type }}
+                                   </ul>
+                                @endforeach  --}}
                             </td>
                             <td>
-                                Rp.{{ $sparepart->price  ?? '' }}; 
+                                 {{ $service->price }}
                             </td>
                             <td>
                                 @can('role_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.spareparts.show', $sparepart->id) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.services.show', $service->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
                                 @can('motor_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.spareparts.edit', $sparepart->id) }}">
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.services.edit', $service->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
                                 @can('motor_delete')
-                                    <form action="{{ route('admin.spareparts.destroy', $sparepart->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <form action="{{ route('admin.services.destroy', $service->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -110,7 +123,7 @@
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.spareparts.massDestroy') }}",
+    url: "{{ route('admin.services.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {

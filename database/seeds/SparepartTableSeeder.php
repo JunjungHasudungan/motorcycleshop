@@ -15,40 +15,40 @@ class SparepartTableSeeder extends Seeder
                 'id_sparepart'  => '12394-K59-A11',
                 'motor_id'      => '6',
                 'name'          => 'COVER COMP',
-                'price'         => '0',
+                'price'         => '35000',
                 'slug'          => null,
             ],
             [
                 'id'            => '2',
                 'id_sparepart'  => '12310-KZR-700',
-                'motor_id'      => '6',
+                'motor_id'      => '2',
                 'name'          => 'CYLINDER HEAD',
-                'price'         => '0',
+                'price'         => '300000',
                 'slug'          => null,
             ],
             [
                 'id'            => '3',
                 'id_sparepart'  => '12391-KZR-600',
-                'motor_id'      => '6',
+                'motor_id'      => '11',
                 'name'          => 'CYLINDER HEAD COVER',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '450000'
             ],
             [
                 'id'            => '4',
                 'id_sparepart'  => '95701-06022-00',
-                'motor_id'      => '6',
+                'motor_id'      => '5',
                 'name'          => 'BOLT, FLANGE, 6X22',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '35000'
             ],
             [
                 'id'            => '5',
                 'id_sparepart'  => '12010-K36-T00',
-                'motor_id'      => '6',
+                'motor_id'      => '3',
                 'name'          => 'HEAD ASSY., CYLINDER',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '560000'
             ],
             [
                 'id'            => '6',
@@ -56,31 +56,31 @@ class SparepartTableSeeder extends Seeder
                 'motor_id'      => '6',
                 'name'          => 'GUIDE, VALVE(O.S.)',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '25000'
             ],
             [
                 'id'            => '7',
                 'id_sparepart'  => '12251-KZY-701',
-                'motor_id'      => '6',
+                'motor_id'      => '7',
                 'name'          => 'CYLINDER HEAD',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '300000'
             ],
             [
                 'id'            => '8',
                 'id_sparepart'  => '17111-K59-A10',
-                'motor_id'      => '6',
+                'motor_id'      => '8',
                 'name'          => 'PIPE',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '100000'
             ],
             [
                 'id'            => '9',
                 'id_sparepart'  => '17119-KZY-700',
-                'motor_id'      => '6',
+                'motor_id'      => '9',
                 'name'          => 'CYLINDER HEAD',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '30500'
             ],
             [
                 'id'            => '10',
@@ -88,7 +88,7 @@ class SparepartTableSeeder extends Seeder
                 'motor_id'      => '6',
                 'name'          => 'INSULATOR',
                 'slug'          => null,
-                'price'         => '0'
+                'price'         => '40000'
             ],
             [
                 'id'            => '11',
@@ -112,7 +112,7 @@ class SparepartTableSeeder extends Seeder
                 'motor_id'      => '7',
                 'name'          => 'Sikring (Fuse Mini 10A)',
                 'slug'          => null,
-                'price'         => '5000'
+                'price'         => '50000'
             ]
         ];
 

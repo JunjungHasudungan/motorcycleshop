@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
 
-    public function index()
+    public function index(Service $service)
     {
-        $services = Service::all();
+        $services = Service::withCount(['users', 'motors'])->get();
 
-        dd($services);
+        return view('admin.services.index', compact('services'));
+        // dd($service);
     }
 
 
@@ -31,7 +32,7 @@ class ServiceController extends Controller
 
     public function show(Service $service)
     {
-        //
+        return view('admin.services.show', compact('service'));
     }
 
 
@@ -50,5 +51,10 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         //
+    }
+
+    public function search()
+    {
+        // Sparepart
     }
 }

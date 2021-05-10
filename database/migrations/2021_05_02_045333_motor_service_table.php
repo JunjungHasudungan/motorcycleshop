@@ -15,12 +15,14 @@ class MotorServiceTable extends Migration
     {
         Schema::create('motor_service', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->index();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('service_id')->index();
             $table->foreign('service_id')->references('id')->on('services');
-            $table->unsignedInteger('sparepart_id')->index();
+            $table->unsignedInteger('motor_id')->nullable()->index();
+            $table->foreign('motor_id')->references('id')->on('motors');
+            $table->unsignedInteger('sparepart_id')->nullable()->index();
             $table->foreign('sparepart_id')->references('id')->on('spareparts');
+            $table->unsignedInteger('user_id')->nullable()->index();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

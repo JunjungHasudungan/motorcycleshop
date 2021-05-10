@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
 <div class="wrapper mt-2 ml-2">
@@ -33,12 +33,19 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Motor </label>
-                    <select class="form-control select2" style="width: 100%;" multiple required>
+
+                    <select class="form-control select2 {{ $errors->has('motors') ? 'is-invalid' : '' }}" name="motors[]" id="motors" multiple required>
+                    @foreach($motors as $id => $motors)
+                        <option value="{{ $id }}" {{ in_array($id, old('motors', [])) ? 'selected' : '' }}>{{ $motors }}</option>
+                    @endforeach
+                </select>
+
+{{--                      <select class="form-control select2" style="width: 100%;" multiple required>
                       <option selected="selected" name ="motors[]" >--Pilih Motor---</option>
                         @foreach ($motors as $id => $motor)
-                        <option value="{{$id}}">{{ $motor['name'] }} | {{ $motor['year'] }} | {{ $motor['capacity'] }}</option>
+                        <option value="{{$id}}" {{ in_array($id, old('motors', [])) ? 'selected' : '' }}>{{$motors}}</option>
                         @endforeach
-                    </select>
+                    </select>  --}}
                   </div>
                 </div>
             </div>

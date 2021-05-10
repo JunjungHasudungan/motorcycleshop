@@ -152,12 +152,15 @@
             </li>
 
             <li class="nav-item">
-                <a action="{{route('logout')}}" id="logout-form" method = "POST" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                    <i class="nav-icon fas fa-fw fa-sign-out-alt">
-
-                    </i>
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+               <i class="nav-icon fas fa-fw fa-sign-out-alt">
+                </i>
                     {{ trans('global.logout') }}
-                </a>
+             </a>
+                 {{--  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>  --}}
             </li>
         @endcan
         

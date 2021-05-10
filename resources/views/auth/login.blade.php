@@ -68,9 +68,11 @@
                                     {{ trans('global.forgot_password') }}
                                 </a><br>
                             @endif
-                            <a class="btn btn-link px-0" href="{{ route('register') }}">
-                                {{ trans('global.register') }}
-                            </a>
+                                @can('user_register')
+                                    <a class="btn btn-link px-0" href="{{ route('register') }}">
+                                        {{ trans('global.register') }}
+                                    </a>
+                                @endcan
                         </div>
                     </div>
                 </form>

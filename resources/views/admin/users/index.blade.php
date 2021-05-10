@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-{{-- @can('user_create') --}}
+@can('user_create')
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-lg-12">
             <a href="{{route('admin.users.create')}}" class="btn btn-success">
@@ -9,7 +9,7 @@
             </a>
         </div>
     </div>
-{{-- @endcan --}}
+@endcan
 
 <div class="card">
     <div class="card-header">
@@ -38,9 +38,7 @@
                                  {{ $user->id ?? '' }} 
                             </td>
                             <td>
-                                <a href="{{route('admin.users.show', $user->id)}}" class=" btn btn-default">
-                                     {{ $user->name ?? '' }}
-                                </a>
+                                {{ $user->name ?? '' }}
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}
