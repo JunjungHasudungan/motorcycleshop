@@ -14,7 +14,12 @@ class UpdateSparepartRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id_sparepart'  => ['required','string'],
+            'amount'        => ['required','integer'],
+            'name'          => ['required','string'],
+            'price'         => ['required'],
+            'motors.*'      => ['integer'],
+            'motors'        => ['required', 'array'],
         ];
     }
 }

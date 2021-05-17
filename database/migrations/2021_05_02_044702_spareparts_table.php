@@ -17,10 +17,11 @@ class SparepartsTable extends Migration
             $table->increments('id');
             $table->string('id_sparepart');
             $table->string('name');
+            $table->integer('amount');
             $table->double('price', 8, 0);
             $table->string('slug')->nullable();
-            $table->unsignedInteger('motor_id')->index();
-            $table->foreign('motor_id')->references('id')->on('motors');
+            // $table->unsignedInteger('motor_id')->index();
+            // $table->foreign('motor_id')->references('id')->on('motors');
             $table->timestamps();
             $table->softDeletes();
         });

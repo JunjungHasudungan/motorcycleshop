@@ -17,7 +17,7 @@ class SparepartController extends Controller
     public function index()
     {
         // abort_if(Gate::denies('sparepart_accsess'), Response::HTTP_FORBIDDEN, 'Forbidden');
-        $spareparts = Sparepart::with(['motors'])->get();
+        $spareparts = Sparepart::orderBy('name', 'asc')->get();
 
         return view('admin.spareparts.index', compact('spareparts'));
         // dd('spareparts');
@@ -25,14 +25,19 @@ class SparepartController extends Controller
 
     public function create()
     {
-        $motors = Motor::all()->pluck('name', 'id');
+        $motors = Motor::pluck( 'name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.spareparts.create', compact('motors'));
+        // dd($motors);
     }
 
     public function store(StoreSparepartRequest $request)
     {
-        //
+        $sparepart = Sparepart::create($request->all());
+        $sparepart->motors()->sync($request->input('motors', []));
+
+        return redirect()->route('admin.spareparts.index');
+        // dd($sparepart);
     }
 
     public function show(Sparepart $sparepart)
@@ -43,12 +48,22 @@ class SparepartController extends Controller
 
     public function edit(Sparepart $sparepart)
     {
-        return view('admin.spareparts.edit', compact('sparepart'));
+        $motors = Motor::pluck('name', 'id');
+
+        $sparepart->load('motors');
+        
+        return view('admin.spareparts.edit', compact('sparepart', 'motors'));
+        // dd($sparepart);
     }
 
     public function update(UpdateSparepartRequest $request, Sparepart $sparepart)
     {
-        //
+        $sparepart->update($request->all());
+
+        $sparepart->motors()->sync($request->input('motors', []));
+
+        return redirect()->route('admin.spareparts.index');
+        // dd($sparepart);
     }
 
     public function destroy(Sparepart $sparepart)

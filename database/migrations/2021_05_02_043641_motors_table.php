@@ -17,7 +17,7 @@ class MotorsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            $table->year('created_by_year');
+            $table->year('created_at_year');
             $table->string('no_plat')->nullable();
             $table->string('slug')->nullable();
             

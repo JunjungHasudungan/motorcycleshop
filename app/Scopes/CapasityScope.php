@@ -17,6 +17,6 @@ class CapasityScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('age', '>', 200);
+        $builder->where('created_by_year', '>', 2012)->orderBy('name', 'ASC');
     }
 }

@@ -40,7 +40,13 @@
                             {{ trans('cruds.spareparts.title') }}
                         </th>
                         <th>
-                            {{ trans('cruds.spareparts.fields.categories') }}
+                            {{ trans('cruds.spareparts.fields.amount') }}
+                        </th>
+                        <th scope="col-md-6">
+                            {{ trans('cruds.spareparts.fields.motor_for') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.motors.fields.type') }}
                         </th>
                         <th>
                             {{ trans('cruds.spareparts.fields.price') }}
@@ -52,46 +58,67 @@
                 </thead>
                 <tbody>
                     @foreach($spareparts as $key => $sparepart)
-                        <tr data-entry-id="{{ $sparepart->id }}">
-                            <td>
+                        {{--  @foreach ($sparepart->motors as $motor)  --}}
+                            <tr data-entry-id="{{ $sparepart->id }}">
+                                <td>
 
-                            </td>
-                            <td>
-                                {{ $sparepart->id ?? '' }} 
-                            </td>
-                            <td>
-                                {{ $sparepart->name ?? '' }}  
-                            </td>
-                            <td>
-                                 {{ $sparepart->motors->name }} - {{ $sparepart->motors->type }}
-                            </td>
-                            <td>
-                                Rp.{{ $sparepart->price  ?? '' }}; 
-                            </td>
-                            <td>
-                                @can('role_show')
+                                </td>
+                                <td>
+                                    {{ $sparepart->id ?? '' }} 
+                                </td>
+                                <td>
+                                    {{ $sparepart->name ?? '' }}  
+                                </td>
+                                <td>
+                                    {{$sparepart->amount}}
+                                </td>
+                                    <td>
+                                        @foreach ($sparepart->motors as $key => $motor)
+                                       <ul>
+                                           <li>
+                                               {{ $motor->name  }} - {{$motor->capasities->capasity}}
+                                           </li>
+                                       </ul>
+                                        @endforeach
+                                    </td>
+                                    <td >
+                                        @foreach ($sparepart->motors as $key => $motor)
+                                        <ul>
+                                            <li>
+                                                {{ $motor->type  }} - {{$motor->created_at_year}}
+                                            </li>
+                                        </ul>
+                                            
+                                        @endforeach
+                                    </td>  
+                                <td>
+                                    Rp.{{ $sparepart->price  ?? '' }}; 
+                                </td>
+                                <td>
+                                    @can('role_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.spareparts.show', $sparepart->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
-                                @endcan
-
-                                @can('motor_edit')
+                                    @endcan
+                                    
+                                    @can('motor_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.spareparts.edit', $sparepart->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
-                                @endcan
-
-                                @can('motor_delete')
+                                    @endcan
+                                    
+                                    @can('motor_delete')
                                     <form action="{{ route('admin.spareparts.destroy', $sparepart->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                     </form>
-                                @endcan
-
-                            </td>
-                        </tr>
-                      @endforeach
+                                    @endcan
+                                    
+                                </td>
+                            </tr>
+                        {{--  @endforeach  --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>

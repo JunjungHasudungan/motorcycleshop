@@ -1,58 +1,79 @@
 @extends('layouts.admin')
-
 @section('content')
-<div class="wrapper mt-2 ml-2">
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-                <h2>Tambah Data SparePart</h2>
-              </div>
-            </div>
-          </div><!-- /.container-fluid -->
-        </section>
-        
-            <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-          <!-- SELECT2 EXAMPLE -->
-          <div class="card card-default">
-            <div class="card-header">
-              <h3 class="card-title"> SELECT MOTOR</h3>
-  
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
-              </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Motor </label>
 
-                    <select class="form-control select2 {{ $errors->has('motors') ? 'is-invalid' : '' }}" name="motors[]" id="motors" multiple required>
-                    @foreach($motors as $id => $motors)
-                        <option value="{{ $id }}" {{ in_array($id, old('motors', [])) ? 'selected' : '' }}>{{ $motors }}</option>
-                    @endforeach
-                </select>
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.create') }} {{ trans('cruds.spareparts.title_singular') }}
+    </div>
 
-{{--                      <select class="form-control select2" style="width: 100%;" multiple required>
-                      <option selected="selected" name ="motors[]" >--Pilih Motor---</option>
-                        @foreach ($motors as $id => $motor)
-                        <option value="{{$id}}" {{ in_array($id, old('motors', [])) ? 'selected' : '' }}>{{$motors}}</option>
-                        @endforeach
-                    </select>  --}}
-                  </div>
+    <div class="card-body">
+        <form method="POST" action="{{ route("admin.spareparts.store") }}" enctype="multipart/form-data">
+            @csrf
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label class="required" for="id_sparepart">{{ trans('cruds.spareparts.fields.id_sparepart') }}</label>
+                  <input type="text" name="id_sparepart" class="form-control {{$errors->has('id_sparepart') ? 'is-invalid' : ''}}" id="id_sparepart" value="{{old('id_sparepart')}}" required>
+                    @if($errors->has('id_sparepart'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('id_sparepart') }}
+                    </div>
+                    @endif
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="required" for="name">{{ trans('cruds.spareparts.fields.name') }}</label>
+                  <input type="text" name="name" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}" id="name" value="{{old('name')}}" required>
+                    @if ($errors->has('name'))
+                        <div class="invalid-feedback">
+                        {{$errors->first('name')}}
+                        </div>                        
+                    @endif
                 </div>
             </div>
-        </div>
-
-
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="required" for="price">{{ trans('cruds.spareparts.fields.price') }}</label>
+                        <input type="text" name="price" class="form-control {{$errors->has('price') ? 'is-invalid' : ''}}" id="price" value="{{old('price')}}" required>
+                        @if ($errors->has('price'))
+                        <div class="invalid-feedback">
+                            {{$errors->first('price')}}
+                        </div>
+                        @endif
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="required" for="motors">{{ trans('cruds.spareparts.fields.motor_id') }}</label>
+                    <select name="motors[]" class="form-control select2 {{$errors->has('motors') ? 'is-invalid' : ''}} " 
+                    id="motors" multiple required>
+                        @foreach ($motors as $id => $motors)
+                            <option value="{{$id}}"{{in_array($id, old('motors', [])) ? 'selected' : ''}}>
+                                {{$motors}}
+                            </option>                            
+                        @endforeach
+                </select>
+                    @if($errors->has('motors'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('motors') }}
+                        </div>
+                    @endif
+                </div>
+                
+                <div class="form-group col-md-2">
+                    <label class="required" for="amount">{{ trans('cruds.spareparts.fields.amount') }}</label>
+                    <input type="text" name="amount" class="form-control {{$errors->has('amount') ? 'is-invalid' : ''}}" id="amount" value="{{old('amount')}}" required>
+                        @if ($errors->has('amount'))
+                            <div class="invalid-feedback">
+                                {{$errors->first('amount')}}
+                            </div>
+                        @endif
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">
+                        {{ trans('global.save') }}
+                    </button>
+                </div>
+        </form>
     </div>
 </div>
+
+
 
 @endsection

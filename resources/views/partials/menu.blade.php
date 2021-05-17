@@ -62,7 +62,7 @@
                     @can('user_access')
 
                         <li class="nav-item">
-                            <a href="{{route('admin.users.create')}}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                            <a href="{{route('admin.users.index')}}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-user nav-icon">
 
                                 </i>
@@ -148,6 +148,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('event_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.events.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-cogs nav-icon">
+
+                            </i>
+                            {{ trans('cruds.events.title') }} 
+                        </a>
+                    </li>
+                @endcan
                 </ul>
             </li>
 

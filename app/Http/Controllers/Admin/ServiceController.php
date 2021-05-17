@@ -38,7 +38,7 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        //
+        return view('admin.services.edit', compact('service'));
     }
 
 

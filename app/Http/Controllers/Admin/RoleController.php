@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateRoleRequest;
+use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\MassDestroyRoleRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,7 +15,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::with('permissions')->orderBy('name', 'asc')->get();
+        $roles = Role::all();
 
         return view('admin.roles.index', compact('roles'));
         // dd($roles);
@@ -22,16 +23,21 @@ class RoleController extends Controller
 
     public function create()
     {
-        $permissions = Permission::all()->pluck('nama', 'id');
+        $permissions = Permission::all()->pluck('title', 'id');
         
         return view('admin.roles.create', compact('permissions'));
+        // dd($permissions);
 
     }
 
 
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
-        //
+        $role = Role::create($request->all());
+        $role->permissions()->sync($request->input('permissions', []));
+
+        return redirect()->route('admin.roles.index');
+        // dd($role);
     }
 
 
@@ -49,6 +55,7 @@ class RoleController extends Controller
         $role->load('permissions');
 
         return view('admin.roles.edit', compact('role', 'permissions'));
+        // dd($permissions);
     }
 
 
@@ -58,6 +65,7 @@ class RoleController extends Controller
         $role->permissions()->sync($request->input('permissions', []));
 
         return redirect()->route('admin.roles.index');
+        // dd($role);
     }
 
 

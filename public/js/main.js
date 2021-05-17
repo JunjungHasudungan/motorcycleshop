@@ -38,17 +38,6 @@ $(document).ready(function () {
     }
   })
 
-  $('.lesson-timepicker').datetimepicker({
-    format: 'HH:mm',
-    stepping: 30,
-    icons: {
-      up: 'fas fa-chevron-up',
-      down: 'fas fa-chevron-down',
-      previous: 'fas fa-chevron-left',
-      next: 'fas fa-chevron-right'
-    }
-  })
-
   $('.select-all').click(function () {
     let $select2 = $(this).parent().siblings('.select2')
     $select2.find('option').prop('selected', 'selected')

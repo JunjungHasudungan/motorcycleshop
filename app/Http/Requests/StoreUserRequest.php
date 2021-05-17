@@ -23,6 +23,10 @@ class StoreUserRequest extends FormRequest
         return [
             'name'     => [
                 'required'],
+            'id_user'  => [
+                'max:7| required'
+            ],
+            ['id_user. max' => 'Id user Harus ...'],
             'email'    => [
                 'required',
                 'unique:users'],

@@ -48,8 +48,8 @@
               <!-- Right -->
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a href="#" class="nav-link waves-effect">
-                    Shop
+                  <a href="{{route('events')}}" class="nav-link waves-effect">
+                    {{ trans('global.events') }}
                   </a>
                 </li>
                 <li class="nav-item drop-down">

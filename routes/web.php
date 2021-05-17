@@ -9,7 +9,9 @@ Auth::routes();
 Route::get('/', 'HomePageController@index')->name('home');
 Route::get('/about','HomePageController@about')->name('about');
 Route::get('/spareparts','HomePageController@spareparts')->name('spareparts');
+Route::get('spartparts', 'HomePageController@search')->name('spareparts.search');
 Route::get('/services','HomePageController@services')->name('services');
+Route::get('/events', 'HomePageController@events')->name('events');
 
 Route::get('/home', function () {
     // $routeName = auth()->user()->is_admin ? 'admin.posts.index' : 'admin.motors.index';
@@ -53,6 +55,8 @@ Route::group([
     Route::delete('services/destroy', 'ServiceController@massDestroy')->name('services.massDestroy');
     Route::resource('services', 'ServiceController');
     // Route::get('services', 'ServiceController@search')->name('services.search');
+
+    Route::resource('events', 'EventController');
 
     // Users
     Route::delete('users/destroy', 'UserController@massDestroy')->name('users.massDestroy');

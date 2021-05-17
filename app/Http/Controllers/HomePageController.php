@@ -28,7 +28,7 @@ class HomePageController extends Controller
     {
         $services = Service::with('motors')->get();
 
-        return view('admin.services.index', compact('services'));
+        return view('homepage.services', compact('services'));
         // dd($services);
     }
 
@@ -36,6 +36,27 @@ class HomePageController extends Controller
     {
         $spareparts = Sparepart::all();
 
-        return view('admin.spareparts.index', compact('spareparts'));
+        return view('homepage.spareparts', compact('spareparts'));
+    }
+
+    public function search()
+    {
+        $spareparts = Sparepart::with('motors')->orderBy('created_at', 'DESC');
+        if (request()->search != '') {
+            $spareparts = $spareparts->where('name', 'LIKE', '%' . request()->search . '%');
+        }
+        $spareparts = $spareparts->paginate(10);
+
+        return view('homepage.spareparts', compact('spareparts'));
+    }
+
+    public function events()
+    {
+        return view('homepage.events');
+    }
+
+    public function motors()
+    {
+        return view('homepage.motors');
     }
 }

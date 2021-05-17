@@ -14,6 +14,7 @@ return [
     'edit'                                 => 'Edit',
     'emailVerificationSuccess'             => 'User email verified successfully',
     'entries'                              => 'Entries',
+    'events'                               => 'Events',
     'filterDate'                           => 'Filter by date',
     'forgot_password'                      => 'Forgot your password?',
     'home'                                 => 'Home',

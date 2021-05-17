@@ -37,6 +37,12 @@
                             {{ trans('cruds.motors.title') }}
                         </th>
                         <th>
+                            {{ trans('cruds.motors.fields.type') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.motors.fields.year') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.motors.fields.categories') }}
                         </th>
                         <th >
@@ -51,10 +57,16 @@
 
                             </td>
                             <td>
-                                {{ $motor->id ?? '' }} 
+                                {{ $loop->iteration  }} 
                             </td>
                             <td>
                                 {{ $motor->name ?? '' }} - {{ $motor->capasities->capasity }} 
+                            </td>
+                            <td>
+                                {{$motor->type}}
+                            </td>
+                            <td>
+                                {{$motor->created_at_year}}
                             </td>
                             <td>
                                    {{ $motor->categoriesMotors->name }} 

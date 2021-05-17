@@ -64,6 +64,7 @@ return [
             'no'                       => 'No',
             'student'                  => 'Student',
             'id'                       => 'ID',
+            'id_user'                  => 'ID User',
             'id_helper'                => ' ',
             'nim'                      => 'NIM',
             'name'                     => 'Name',
@@ -109,14 +110,18 @@ return [
         'title'             => 'Motor',
         'title_singular'    => 'Motor',
         'fields'     => [
-            'id'        => 'ID',
-            'no'        => 'No',
-            'name'      => 'Nama Motor',
-            'type'      => 'Estimasi Biaya',
-            'year'      => 'Tahun',
-            'categories'  => 'Kategori',
-            'capasity'  => 'Kapasitas',
-            'option'    => 'OPSI'            
+            'id'                => 'ID',
+            'no'                => 'No',
+            'name'              => 'Nama Motor',
+            'type'              => 'Tipe',
+            'year'              => 'Tahun',
+            'categories'        => 'Kategori',
+            'capasity'          => 'Kapasitas',
+            'capasity_id'       => 'Kapasitas',
+            'motor_for'         => 'Untuk Motor',
+            'created_at_year'   => 'Tahun Pembuatan',
+            'category_id'       => 'Kategori',
+            'option'            => 'OPSI'            
         ]
     ],    
     'spareparts'        => [
@@ -124,10 +129,15 @@ return [
         'title_singular'    => 'Sparepart',
         'fields'     => [
             'id'            => 'ID',
-            'id_sparepart'  => 'No',
+            'id_sparepart'  => 'ID Sparepart',
             'name'          => 'Nama Sparepart',
-            'price'          => 'Harga Sparepart',
+            'motor_for'     => 'Untuk Motor',
+            'price'          => 'Harga',
             'year'          => 'Tahun',
+            'type'          => 'Tipe',
+            'amount'        => 'Jumlah',
+            'motors'        => 'Motor',
+            'motor_id'      => 'Motor',
             'categories'    => 'Kategori',
             'capasity'      => 'Kapasitas',
             'option'        => 'OPSI'            
@@ -142,6 +152,16 @@ return [
             'name'      => 'Nama Service',
             'id_service'      => 'ID Service',
             'price'      => 'Harga Jasa Service',
+        ]
+    ],
+    'events'        => [
+        'title'             => 'Events',
+        'title_singular'    => 'Event',
+        'fields'     => [
+            'id'            => 'ID',
+            'no'            => 'No',
+            'name'          => 'Nama Event',
+            'created_at'    => 'Tanggal Event'
         ]
     ],
     'contract'       => [
@@ -189,6 +209,7 @@ return [
         'title_singular' => 'User',
         'fields'         => [
             'id'                       => 'ID',
+            'id_user'                  => 'ID User',
             'id_helper'                => '',
             'name'                     => 'Name',
             'name_helper'              => '',
@@ -227,13 +248,14 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
-    'region'         => [
-        'title'          => 'Regions',
-        'title_singular' => 'Region',
+    'capasities'         => [
+        'title'          => 'Kapasiitas',
+        'title_singular' => 'Kapasitas',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
-            'name'              => 'Name',
+            'name'              => 'Nama Kapasitas',
+            'title'             => 'Kapasitas',
             'name_helper'       => '',
             'created_at'        => 'Created at',
             'created_at_helper' => '',
@@ -309,7 +331,7 @@ return [
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => '',
-            'title'             => 'Title',
+            'title'             => 'Motor',
             'title_helper'      => '',
             'full_text'         => 'Full Text',
             'full_text_helper'  => '',

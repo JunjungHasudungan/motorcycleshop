@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\Capasity;
 use Illuminate\Http\Request;
 use App\Http\Requests\MassDestroyMotorRequest;
+use App\Http\Requests\StoreMotorRequest;
+use App\Http\Requests\UpdateMotorRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 class MotorController extends Controller
@@ -19,25 +21,31 @@ class MotorController extends Controller
         // $categories = Category::all();
         // $motors = Motor::with('capasities')->get();
 
-        $motors = Motor::with('categoriesMotors')->get();
-        // $motors->load(['categoriesMotors', 'capasities']);
+        $motors = Motor::withCount('categoriesMotors')->orderBy('name', 'desc')->get();
+        // $motors = Motor::get();
+
         return view('admin.motors.index', compact('motors'));
-        // dd($motors);
+
     }
 
     public function create()
     {
-        $Capasities = Capasity::all()->pluck('capasity', 'id');
+        $capasities = Capasity::all()->pluck('capasity', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $categories = Category::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.motors.create', compact('capasities'));
+        return view('admin.motors.create', compact('capasities', 'categories'));
+        // dd([$capasities, $categories]);
 
     }
 
     public function store(StoreMotorRequest $request)
     {
         $motor = Motor::create($request->all());
+/*         $motor->capasities()->sync($request->input('capasities', []));
+        $motor->categoriesMotors()->sync($request->input('categories', [])); */
 
-        return redirect()->route('motor.index');
+        return redirect()->route('admin.motors.index');
+        // dd($motor);
     }
 
 
@@ -52,12 +60,22 @@ class MotorController extends Controller
 
     public function edit(Motor $motor)
     {
-        return view('admin.motors.edit', compact('motor'));
+        $capasities = Capasity::all()->pluck('capasity', 'id');
+
+        $categories = Category::all()->pluck('name', 'id');
+
+        $motor->load('capasities', 'categoriesMotors');
+        
+        return view('admin.motors.edit', compact('capasities', 'categories', 'motor'));
+        // dd($motor);
     }
 
-    public function update(Request $request, Motor $motor)
+    public function update(UpdateMotorRequest $request, Motor $motor)
     {
-        //
+        $motor->update($request->all());
+
+        return redirect()->route('admin.motors.index');
+        // dd($motor);
     }
 
     public function destroy(Motor $motor)

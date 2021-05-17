@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Scopes\CapasityScope;
 
 class Motor extends Model
 {
@@ -11,7 +12,7 @@ class Motor extends Model
 
     protected $table = 'motors';
 
-    protected $fillable = ['name', 'type', 'created_by_year', 'no_plat', 'slug', 'capasity_id', 'category_id'];
+    protected $fillable = ['name', 'type', 'created_at_year', 'no_plat', 'slug', 'capasity_id', 'category_id'];
 
 
     public function users()
@@ -21,7 +22,7 @@ class Motor extends Model
 
     public function spareparts()
     {
-        return $this->hasMany(Sparepart::class);
+        return $this->belongsToMany(Sparepart::class);
     }
 
     public function motorservices()
@@ -45,4 +46,18 @@ class Motor extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    // dynamic Local-scope
+    public function scopeCreatedByYear($query, $order)
+    {
+        return $query->where('created_by_year', '>', 2012)->orderBy('created_by_year', $order);
+    }
+
+    // Global Scope
+/*         protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new CapasityScope);
+    } */
 }
