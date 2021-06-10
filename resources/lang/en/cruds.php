@@ -95,15 +95,15 @@ return [
             'deleted_at_helper'        => ' ',
         ],
     ],
-    'chasiers'        => [
-        'title'             => 'Data Kasir',
-        'title_singular'    => 'Kasir',
+    'motor_services'        => [
+        'title'             => 'Motor Services',
+        'title_singular'    => 'Motor Service',
         'fields'     => [
-            'id'        => 'ID',
-            'no'        => 'No',
-            'name'      => 'Nama Jurusan',
-            'cost'      => 'Estimasi Biaya',
-            'option'    => 'OPSI'            
+            'id'            => 'ID',
+            'no'            => 'No',
+            'name'          => 'Nama Customer',
+            'loans'      => 'Domisili',
+            'option'        => 'OPSI'            
         ]
     ],
     'motors'        => [
@@ -113,6 +113,7 @@ return [
             'id'                => 'ID',
             'no'                => 'No',
             'name'              => 'Nama Motor',
+            'motor_services'    => 'Jasa Service Motor',
             'type'              => 'Tipe',
             'year'              => 'Tahun',
             'categories'        => 'Kategori',

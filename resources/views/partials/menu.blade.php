@@ -1,21 +1,4 @@
 
-{{-- <li class="nav-item dropdown">
-    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        {{ Auth::user()->name }} <span class="caret"></span>
-    </a>
-
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </div>
-</li> --}}
 <div class="sidebar">
 
     <nav class="sidebar-nav">
@@ -108,6 +91,14 @@
                     @endcan
                 </ul>
             </li>
+            {{-- attendance --}}
+            <li class="nav-item">
+                <a href="{{route('admin.attendances.index')}}" class="nav-link">
+                    <i class="fas fa-id-badge nav-icon"></i>
+                    {{ trans('global.attendances') }}
+                </a>
+            </li>
+            {{-- attendance --}}
 
             {{--  Motors Manangement  --}}
             <li class="nav-item nav-dropdown">
@@ -125,6 +116,15 @@
 
                                 </i>
                                 {{ trans('cruds.motors.title') }} 
+                            </a>
+                        </li>
+                    @endcan
+                    @can('motor_service')
+                        <li class="nav-item">
+                            <a href="{{route('admin.jasa-motor-service.index')}}" class="nav-link">
+                                <i class="fa-fw fas fa-motorcycle nav-icon">
+                                </i>
+                                {{ trans('cruds.motors.fields.motor_services') }}
                             </a>
                         </li>
                     @endcan
@@ -160,14 +160,13 @@
                 @endcan
                 </ul>
             </li>
-
+            {{-- @can('access_logout') --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-               <i class="nav-icon fas fa-fw fa-sign-out-alt">
-                </i>
-                    {{ trans('global.logout') }}
-             </a>
+                    <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
+                </a>
+        {{-- @endcan --}}
                  {{--  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>  --}}

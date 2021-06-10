@@ -14,7 +14,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'CBS',
             'created_at_year'   => '2006',
             'capasity_id'       => '1',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
         ],
@@ -24,7 +23,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'Techno',
             'created_at_year'   => '2009',
             'capasity_id'       => '2',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
             // 
@@ -35,7 +33,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'Techno FI',
             'created_at_year'   => '2012',
             'capasity_id'       => '2',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
         ],
@@ -45,7 +42,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'eSP',
             'created_at_year'   => '2015',
             'capasity_id'       => '2',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
         ],
@@ -55,7 +51,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'CBS',
             'created_at_year'   => '2015',
             'capasity_id'       => '2',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
         ],
@@ -65,7 +60,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'CBS',
             'created_at_year'   => '2020',
             'capasity_id'       => '3',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 2
         ],
@@ -75,7 +69,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'MACHO MATTE BLAC',
             'created_at_year'   => '2020',
             'capasity_id'       => '3',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       =>  5
         ],
@@ -85,7 +78,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'ATTRACTIVE RED FI',
             'created_at_year'   => '2020',
             'capasity_id'       => '1',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 3
         ],
@@ -95,7 +87,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'SPECIAL EDITION',
             'created_at_year'   => '2020',
             'capasity_id'       => '3',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 5
         ],
@@ -105,7 +96,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'MANUAL',
             'created_at_year'   => '2020',
             'capasity_id'       => '3',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 4
         ],
@@ -115,7 +105,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'PGM-FI',
             'created_at_year'   => '2020',
             'capasity_id'       => '3',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 3
         ],
@@ -125,7 +114,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'CBS',
             'created_at_year'   => '2020',
             'capasity_id'       => '4',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 2
         ],
@@ -135,7 +123,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'KEYLESS',
             'created_at_year'   => '2020',
             'capasity_id'       => '1',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
         ],
@@ -145,7 +132,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'STREE',
             'created_at_year'   => '2020',
             'capasity_id'       => '1',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 1
         ],
@@ -155,7 +141,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'SPECIAL EDITION',
             'created_at_year'   => '2020',
             'capasity_id'       => '4',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 2
         ],
@@ -165,7 +150,6 @@ class MotorTableSeeder extends Seeder
             'type'              => 'SPECIAL EDITION',
             'created_at_year'   => '2020',
             'capasity_id'       => '3',
-            'no_plat'           => null,
             'slug'              => null,            
             'category_id'       => 4
         ]

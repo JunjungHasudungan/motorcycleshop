@@ -31,12 +31,45 @@
         </button>
         <a class="navbar-brand" href="#">
             <span class="navbar-brand-full">{{ trans('panel.site_title') }}</span>
-            <span class="navbar-brand-minimized">{{ trans('panel.site_title') }}</span>
+            {{--  <span class="navbar-brand-minimized">{{ trans('panel.site_title') }}</span>  --}}
         </a>
         <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <ul class="navbar-nav ml-auto float-right" id="user-name">
+          <a id="navbarDropdown" class="nav-link dropdown-toggle dropdown-toggle-split" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              {{ Auth::user()->name }} <span class="caret"></span>
+          </a>
+          <li class="navbar-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+            </a>
+            <a class="nav-link" data-toggle="dropdown" href="#">
+            </a>
 
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                <span class="float-right text-muted text-sm">3 mins</span>
+              </a>
+              {{--  <div class="dropdown-divider"></div>  --}}
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i> 4 new messages
+                <span class="float-right text-muted text-sm">3 mins</span>
+              </a>
+              {{--  <div class="dropdown-divider"></div>  --}}
+              <a href="#" class="dropdown-item">
+                <i class="fa-fw fas fa-cogs nav-icon"></i> Profile
+                {{--  <span class="float-right text-muted text-sm">3 mins</span>  --}}
+              </a>
+              {{--  <div class="dropdown-divider"></div>  --}}
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                      <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
+                    </a>
+            </div>
+            
+          </li>
+        </ul>
         <ul class="nav navbar-nav ml-auto">
             @if(count(config('panel.available_languages', [])) > 1)
                 <li class="nav-item dropdown d-md-down-none">

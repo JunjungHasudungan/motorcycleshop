@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'id'             => 2, 
-                'name'           => 'Mechanic-3',
+                'name'           => 'Caca-Mechanic3',
                 'email'          => 'mechanic3@caca.com',
                 'password'       => bcrypt('mechanic3'),
                 'remember_token' => null,

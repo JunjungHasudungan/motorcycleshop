@@ -35,7 +35,22 @@ class User extends Authenticatable
 
     public function getIsAdminAttribute()
     {
-        return $this->roles()->where('id', 1)->exists();
+        return $this->roles()->where('id', 1)->exists();  // admin
+    }
+
+    public function getIsMechanicAtribute()
+    {
+        return $this->roles()->where('id', 2)->exists(); // mechanic
+    }
+
+    public function getIsChasierAttribute()
+    {
+        return $this->roles()->where('id', 3)->exists(); // chasier
+    }
+
+    public function getIsAdvisorAttrribute()
+    {
+        return $this->roles()->where('id', 4)->exists(); // advisor
     }
 
     public function roles()
@@ -43,10 +58,6 @@ class User extends Authenticatable
         return $this->belongsToMany(\App\Models\Role::class, 'role_user', 'user_id', 'role_id');
     }
 
-    public function getIsMechanic()
-    {
-        return $this->roles()->where('id', 2)->exists();
-    } 
 
     public function motors()
     {

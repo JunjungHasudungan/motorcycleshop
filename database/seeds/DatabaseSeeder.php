@@ -20,8 +20,11 @@ class DatabaseSeeder extends Seeder
             SparepartTableSeeder::class,
             BiographyTableSeeder::class,
             ServiceTableSeeder::class,
-            MotorServiceTableSeeder::class,
             SparepartMotorSeeder::class,
+            DistrictTableSeeder::class,
+            LoanTableSeeder::class,
+            // MotorServiceTableSeeder::class,
+            // MotorServiceTableSeeder::class,
             // CapasityMotorTableSeeder::class,
             // CategoriesMotorTableSeeder::class,
             ]);

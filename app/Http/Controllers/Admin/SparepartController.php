@@ -10,13 +10,14 @@ use App\Http\Requests\StoreSparepartRequest;
 use App\Http\Requests\UpdateSparepartRequest;
 use App\Http\Requests\massDestroySparepartRequest;
 use Gate;
-use Symphony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 class SparepartController extends Controller
 {
     public function index()
     {
-        // abort_if(Gate::denies('sparepart_accsess'), Response::HTTP_FORBIDDEN, 'Forbidden');
+        abort_if(Gate::denies('sparepart_accsess'), Response::HTTP_FORBIDDEN, 'Forbidden');
+
         $spareparts = Sparepart::orderBy('name', 'asc')->get();
 
         return view('admin.spareparts.index', compact('spareparts'));
@@ -25,6 +26,8 @@ class SparepartController extends Controller
 
     public function create()
     {
+        abort_if(Gate::denies('sparepart_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $motors = Motor::pluck( 'name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.spareparts.create', compact('motors'));
@@ -34,6 +37,7 @@ class SparepartController extends Controller
     public function store(StoreSparepartRequest $request)
     {
         $sparepart = Sparepart::create($request->all());
+
         $sparepart->motors()->sync($request->input('motors', []));
 
         return redirect()->route('admin.spareparts.index');
@@ -42,6 +46,8 @@ class SparepartController extends Controller
 
     public function show(Sparepart $sparepart)
     {
+        abort_if(Gate::denies('sparepart_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return view('admin.spareparts.show', compact('sparepart'));
         // dd($sparepart);
     }
@@ -68,6 +74,8 @@ class SparepartController extends Controller
 
     public function destroy(Sparepart $sparepart)
     {
+        abort_if(Gate::denies('sparepart_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
         $sparepart->delete();
 
         return redirect()->route('admin.spareparts.index');

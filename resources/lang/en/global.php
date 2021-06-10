@@ -1,12 +1,14 @@
 <?php
 
 return [
-    'about'                                => 'About',
+    'about'                                => 'Tentang',
     'actions'                              => 'Actions',
     'add'                                  => 'Add',
+    'attendances'                           => 'Absensi',
     'allRightsReserved'                    => 'All rights reserved.',
     'areYouSure'                           => 'Are you sure?',
     'clickHereToVerify'                    => 'Click here to verify',
+    'categories'                           => 'Kategori',
     'create'                               => 'Create',
     'dashboard'                            => 'Dashboard',
     'delete'                               => 'Delete',
@@ -27,6 +29,7 @@ return [
     'month'                                => 'Month',
     'no'                                   => 'No',
     'pleaseSelect'                         => 'Please select',
+    'promo'                                => 'Promo',
     'site_title'                           => 'Toko Bengkel Motor',
     'register'                             => 'Register',
     'remember_me'                          => 'Remember me',
@@ -111,7 +114,7 @@ return [
     'campaign'                             => 'Campaign',
     'campaigns'                            => 'Campaigns',
     'categories'                           => 'Categories',
-    'category'                             => 'Category',
+    'category'                             => 'Kategori',
     'category_name'                        => 'Category name',
     'change_notifications_field_1_label'   => 'Send email notification to User',
     'change_notifications_field_2_label'   => 'When Entry on CRUD',

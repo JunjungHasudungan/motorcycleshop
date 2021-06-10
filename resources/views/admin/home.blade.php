@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content">
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -16,6 +17,7 @@
                     @endif
 
                     You are logged in!
+                    
                 </div>
             </div>
         </div>

@@ -12,7 +12,8 @@ class PermissionRoleTableSeeder extends Seeder
         $admin_permissions = Permission::all();
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id')); // Admin
 
-        $mechanics = $admin_permissions->whereIn('title', ['service_access', 'service_show' ]);
+        $mechanics = $admin_permissions->whereIn('title', ['service_access', 'service_show', 'access_logout', 
+        'service_create', 'service_delete', 'service_update' ]);
         Role::findOrFail(2)->permissions()->sync($mechanics); // Mechanics - service
 
         $chasiers = $admin_permissions->whereIn('title', ['sparepart_access', 'sparepart_show', 'service_show',

@@ -115,3 +115,11 @@ table.dataTable thead .sorting_desc {
 .form-check.is-invalid ~ .invalid-feedback {
     display: block;
 }
+
+.navbar-nav{
+    margin-left: 40%;
+}
+
+#name-user{
+    margin-left: 40%;
+}

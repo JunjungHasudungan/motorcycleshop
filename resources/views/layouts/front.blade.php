@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap-slider.css') }}">
   <!-- Font Awesome -->
   <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
   <!-- CUSTOM CSS -->
   <link href="{{ asset('css/front.css') }}" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
@@ -39,52 +40,26 @@
       <div class="row mb-2">
         <div class="col-sm-12">
           <!-- Navbar -->
-          <nav class="navbar navbar-expand-lg navbar-light">
-
+          <nav class="navbar navbar-expand-lg navbar-light bg-light mt-2 w-100">
 
             <!-- Links -->
-            <div class="collapse navbar-collapse" id="basicExampleNav11">
-
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              
               <!-- Right -->
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a href="{{route('events')}}" class="nav-link waves-effect">
-                    {{ trans('global.events') }}
-                  </a>
-                </li>
-                <li class="nav-item drop-down">
-                  <a href="#" class="nav-link waves-effect ">
-                    {{ trans('global.products') }}
-                  </a>
-                  <ul>
-                    <li><a class="dropdown-item" href="{{route('services')}}">{{ trans('global.services') }}</a></li>
-                    <li><a class="dropdown-item" href="{{route('spareparts')}}">{{ trans('global.spareparts') }}</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('about')}}" class="nav-link waves-effect">
-                    {{ trans('global.about') }}
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('login')}}" class="nav-link waves-effect">
-                    {{ trans('global.sigin') }}
-                  </a>
-                </li>
-              </ul>
-
+              @include('partials.navbar_top')
             </div>
             <!-- Links -->
-
           </nav>
           <!-- Navbar -->
         </div>
       </div>
+      @include('partials.middle_navbar')
     </div>
   </section>
 
-@yield('content')
-
+  <main class="main">
+      @yield('content')
+  </main>
 
 </body>
 

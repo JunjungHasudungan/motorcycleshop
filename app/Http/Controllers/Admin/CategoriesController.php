@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+use App\Http\Requests\MassDestroyCategoryRequest;
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class CategoriesController extends Controller
 {
@@ -15,7 +20,12 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        // arbort_if(Gate::denies('capasties_show'), Response::HTTP_FORBIDDEN, '403 Forbidden);
+
+        $categories = Category::all();
+
+        return view('admin.categories.index', compact('categories'));
+        // dd($categories);
     }
 
     /**
@@ -25,7 +35,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        // abort_if(Gate::denies('category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.categories.create');
     }
 
     /**
@@ -34,11 +46,13 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        //
+        $categories = Category::create($request->all());
+        
+        return redirect()->route('admin.categories.index');
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -47,7 +61,10 @@ class CategoriesController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        // abort_if(Gate::denies('category_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
+        return view('admin.categories.show', compact('category'));
+
     }
 
     /**
@@ -58,7 +75,9 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // abort_if(Gate::denies('category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -68,11 +87,14 @@ class CategoriesController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        
+        $category->update($request->all());
+        
+        return redirect()->route('admin.categories.index');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -81,6 +103,10 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        // abort_if(Gate::denies('category_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+       
+        $category->delete();
+
+        return back();
     }
 }

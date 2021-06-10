@@ -2,52 +2,124 @@ body{
     margin: 0;
     background-color: #f2f2f2;
 }
+
+/* col{
+    background-color: aqua;
+} */
+
 .navbar{
-    /* background:#000033; */
-    height: 60px;
-    width: 50%;
+    background: transparent;
+    height: 50px;
     float: center;
     margin-left: auto;
 }
 
+.navbar-nav{
+    margin-left: 10px;
+}
 
+.navbar-collapse{
+margin-left: 58%;
+}
 
 ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     position: absolute;
+}
+form {
+    display: block;
+    /* margin-left: 5%; */
+    width: 100%;
+}
+
+#categories{
+    margin: auto;
+    /* width: 10%; */
+    /* text-align: right; */
+    margin-left: 20%;
+}
+
+li a{
+    text-align: left;
+}
+
+/* #nav-item{
+    margin-left: 25%;
+    margin-top: 10px;
+}
+
+#search{
+    margin: auto;
+    margin-left: 11%;
+    display: block;
+    display: inline;
+    width: 40%;
+}
+#cari{
+    margin: auto;
+} */
+/* .input-group{
+} */
+
+#input-group{
+    margin-left: 3px;
+    width: 100%;
+}
+
+#log-in{
+    margin-left: 40px;
+}
+
+#about{
+    margin-left: 30%;   
+    flex:none;
+    /* padding: auto; */
+}
+
+#text-about{
+    text-align: right;
+}
+
+#promo{
+    width: 75%;
+    margin-right:auto;
 }
 
 ul li {
     float: right;
-    margin-top: 20px;
+    width: 275px;
+    padding: auto;
+    margin-top: 0;
 }
 
 ul li a {
-    width: 150px;
-    color: white;
+    /* width: 300px; */
+    font-size: small;
+    /* color: white; */
     display: block;
+    margin: 10px;
+    margin-right: 5px;
+    /* background-color: aqua; */
     text-decoration: none;
-    border-radius: 10px;
-    font-size: 20px;
+    /* border-radius: 10px; */
+    font-size: 15px;
     text-align: center;
-    padding: 10px;
-    border-radius: 10px;
+    /* padding: 50px; */
+    /* border-radius: 10px; */
 }
 
-a:hover {
-    background-color: #669900;
-}
+/* a:hover {
+    background-color:white;
+} */
 
 ul li ul {
     background-color: #f2f2f2;
 
 }
 
-ul li ul li a:hover {
+/* ul li ul li a:hover {
     background-color: #669900;
-}
+} */
 
 ul li ul li {
     float: none;
@@ -60,6 +132,13 @@ ul li ul {
 ul li:hover ul {
     display: block;
 }
+
+#title{
+    width: 20%;
+    color:darkgreen;
+    margin-right: 20px;
+}
+
 #card{
     width: 800px;
     margin: 0 auto;

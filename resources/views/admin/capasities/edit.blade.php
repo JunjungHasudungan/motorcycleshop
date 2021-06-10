@@ -1,5 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
-    <h1>CAPASITIES PAGE </h1>
+    <h1>Halaman Kapasitas edit </h1>
 @endsection

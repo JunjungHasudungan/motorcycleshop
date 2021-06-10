@@ -12,7 +12,7 @@ class Motor extends Model
 
     protected $table = 'motors';
 
-    protected $fillable = ['name', 'type', 'created_at_year', 'no_plat', 'slug', 'capasity_id', 'category_id'];
+    protected $fillable = ['name', 'type', 'created_at_year', 'slug', 'capasity_id', 'category_id'];
 
 
     public function users()

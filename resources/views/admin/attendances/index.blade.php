@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Capasities Page index</h1>
+    <h1> <small>Halaman attendances</small> </h1>
 @endsection

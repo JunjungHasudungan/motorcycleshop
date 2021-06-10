@@ -18,7 +18,6 @@ class MotorsTable extends Migration
             $table->string('name');
             $table->string('type');
             $table->year('created_at_year');
-            $table->string('no_plat')->nullable();
             $table->string('slug')->nullable();
             
             $table->unsignedInteger('capasity_id')->index();

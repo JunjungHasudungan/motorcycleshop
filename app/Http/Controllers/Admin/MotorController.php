@@ -9,6 +9,7 @@ use App\Models\Capasity;
 use Illuminate\Http\Request;
 use App\Http\Requests\MassDestroyMotorRequest;
 use App\Http\Requests\StoreMotorRequest;
+use Gate;
 use App\Http\Requests\UpdateMotorRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -16,7 +17,7 @@ class MotorController extends Controller
 {
     public function index()
     {
-        // abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('motor_accsess'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         // $motors = \App\Models\Motor::capasity()->orderBy('capasity', 'DESC')->get();
         // $categories = Category::all();
         // $motors = Motor::with('capasities')->get();
@@ -30,7 +31,10 @@ class MotorController extends Controller
 
     public function create()
     {
+        abort_if(Gate::denies('motor_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $capasities = Capasity::all()->pluck('capasity', 'id')->prepend(trans('global.pleaseSelect'), '');
+        
         $categories = Category::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.motors.create', compact('capasities', 'categories'));
@@ -51,7 +55,8 @@ class MotorController extends Controller
 
     public function show(Motor $motor)
     {
-        //abort_if(Gate::denies('motor_show'), Response::HTTP_FORBIDDEN, '403, Forbidden');
+        abort_if(Gate::denies('motor_show'), Response::HTTP_FORBIDDEN, '403, Forbidden');
+
         $motor->load('capasities');
 
         return view('admin.motors.show', compact('motor'));
@@ -60,6 +65,8 @@ class MotorController extends Controller
 
     public function edit(Motor $motor)
     {
+        abort_if(Gate::denies('motor_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $capasities = Capasity::all()->pluck('capasity', 'id');
 
         $categories = Category::all()->pluck('name', 'id');
@@ -80,6 +87,8 @@ class MotorController extends Controller
 
     public function destroy(Motor $motor)
     {
+        abort_if(Gate::denies('motor_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $motor->delete();
 
         return redirect()->route('admin.motors.index');

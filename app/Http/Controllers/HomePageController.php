@@ -59,4 +59,9 @@ class HomePageController extends Controller
     {
         return view('homepage.motors');
     }
+
+    public function promo()
+    {
+        return view('homepage.promo');
+    }
 }

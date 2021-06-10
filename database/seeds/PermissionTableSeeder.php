@@ -193,6 +193,46 @@ class PermissionTableSeeder extends Seeder
             [
                 'id'        =>'46',
                 'title'     => 'event_show',
+            ],
+            [
+                'id'        =>'47',
+                'title'     => 'permission_access',
+            ],
+            [
+                'id'        =>'48',
+                'title'     => 'permission_create',
+            ],
+            [
+                'id'        =>'49',
+                'title'     => 'permission_edit',
+            ],
+            [
+                'id'        =>'50',
+                'title'     => 'permission_show',
+            ],
+            [
+                'id'        =>'51',
+                'title'     => 'permission_delete',
+            ],
+            [
+                'id'        =>'52',
+                'title'     => 'attendance_access',
+            ],
+            [
+                'id'        =>'53',
+                'title'     => 'attendance_create',
+            ],
+            [
+                'id'        =>'54',
+                'title'     => 'attendance_edit',
+            ],
+            [
+                'id'        =>'55',
+                'title'     => 'attendance_show',
+            ],
+            [
+                'id'        =>'56',
+                'title'     => 'attendance_delete',
             ]
             
         ];
